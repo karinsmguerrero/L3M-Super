@@ -1,0 +1,26 @@
+[{
+	"nombre": "Jefe",
+	"descripcion": "blue",
+	"available": true,
+	"thumb": "content/img/dare.png"
+}, {
+	"nombre": "Gerente",
+	"descripcion": "red",
+	"available": true,
+	"thumb": "content/img/bat.png"
+}, {
+	"nombre": "Contador",
+	"descripcion": "black",
+	"available": true,
+	"thumb": "content/img/wol.png"
+}, {
+	"nombre": "Astronauta",
+	"descripcion": "pink",
+	"available": true,
+	"thumb": "content/img/spa.png"
+},{
+	"nombre": "Conserje",
+	"descripcion": "green",
+	"available": true,
+	"thumb": "content/img/janitor.png"
+}]

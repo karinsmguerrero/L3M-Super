@@ -1,11 +1,28 @@
- var superApp = angular.module('superApp',['ngRoute']);
+ var superApp = angular.module('superApp',['ngRoute','ngAnimate']);
 /**
 * Run before the app Start
 **/
 superApp.config(['$routeProvider',function($routeProvider){
   $routeProvider
   .when('/home', {
-    templateUrl: 'views/home.html'
+    templateUrl: 'views/home.html',
+    controller:'SuperController'
+  })
+  .when('/contact', {
+    templateUrl: 'views/contact.html',
+    controller:'ContactController'
+  })
+  .when('/contact-success', {
+    templateUrl: 'views/contact-success.html',
+    controller:'ContactController'
+  })
+  .when('/login', {
+    templateUrl: 'views/login.html',
+    controller:'ContactController'
+  })
+  .when('/a', {
+    templateUrl: 'views/a.html',
+    controller:'ContactController'
   })
   .when('/roles',{
     templateUrl: 'views/gestionRoles.html',
@@ -23,7 +40,8 @@ superApp.run(function () {
 
 });
 
-superApp.controller('SuperController', ['$scope', function ($scope) {
+
+superApp.controller('SuperController', ['$scope', '$http', function ($scope, $http) {
 
   $scope.eliminarRol= function (rol) {
     var posRol = $scope.roles.indexOf(rol);
@@ -31,44 +49,30 @@ superApp.controller('SuperController', ['$scope', function ($scope) {
   };
 
   $scope.addRol = function () {
+    nombre: $scope.nrol.nombre,
     $scope.roles.push({
-      nombre: $scope.nrol.nombre,
       descripcion: $scope.nrol.descripcion,
       available: true
     });
     $scope.nrol.nombre="";
     $scope.nrol.descripcion="";
-
-
   };
 
-  $scope.message="Testing";
-  $scope.roles = [
-    {
-      nombre: "Jefe",
-      descripcion: "blue",
-      available: true,
-      thumb: "content/img/dare.png"
-    },
-    {
-      nombre: "Gerente",
-      descripcion: "red",
-      available: true,
-      thumb: "content/img/bat.png"
-    },
-    {
-      nombre: "Contador",
-      descripcion: "black",
-      available: true,
-      thumb: "content/img/wol.png"
-    },
-    {
-      nombre: "Conserje",
-      descripcion: "green",
-      available: true,
-      thumb: "content/img/spi.png"
-    }
-  ];
+  $scope.removeAll = function(){
+    $scope.roles = []
+  };
+
+  $http.get('data/roles.json').then(function(data){
+    $scope.roles=data.data;
+  });
 
 
+
+}]);
+
+superApp.controller('ContactController', ['$scope','$location',function ($scope,$location) {
+  $scope.sendMessage= function () {
+    $location.path('/contact-success');
+
+  };
 }]);
