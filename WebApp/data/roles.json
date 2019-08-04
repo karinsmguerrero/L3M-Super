@@ -1,26 +1,21 @@
 [{
 	"nombre": "Jefe",
-	"descripcion": "blue",
-	"available": true,
-	"thumb": "content/img/dare.png"
+	"descripcion": "Black",
+	"available": true
 }, {
 	"nombre": "Gerente",
 	"descripcion": "red",
-	"available": true,
-	"thumb": "content/img/bat.png"
+	"available": true
 }, {
 	"nombre": "Contador",
 	"descripcion": "black",
-	"available": true,
-	"thumb": "content/img/wol.png"
+	"available": true
 }, {
 	"nombre": "Astronauta",
 	"descripcion": "pink",
-	"available": true,
-	"thumb": "content/img/spa.png"
+	"available": true
 },{
 	"nombre": "Conserje",
 	"descripcion": "green",
-	"available": true,
-	"thumb": "content/img/janitor.png"
+	"available": true
 }]

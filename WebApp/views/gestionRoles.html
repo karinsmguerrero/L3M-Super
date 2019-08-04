@@ -6,8 +6,6 @@
   <ul id="rol-list">
     <li ng-repeat="rol in roles | orderBy: orden | filter: busqueda"
     ng-show="rol.available">
-      <img ng-src="{{rol.thumb}}" style= "margin: -12px 10px 0 0; float: left; width: 50px;"
-      ng-show="rol.thumb"/>
       <h3>{{rol.nombre}} <!--: {{rol.descripcion}}--></h3>
       <div class="remove" ng-click="eliminarRol(rol)">x</div>
       <span class="belt" style="background: {{rol.descripcion}}">{{rol.descripcion}} color</span>

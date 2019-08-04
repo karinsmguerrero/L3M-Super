@@ -21,13 +21,18 @@ superApp.config(['$routeProvider',function($routeProvider){
     controller:'ContactController'
   })
   .when('/a', {
-    templateUrl: 'views/a.html',
-    controller:'ContactController'
-  })
-  .when('/roles',{
     templateUrl: 'views/gestionRoles.html',
     controller:'SuperController'
-  }).otherwise({
+  })
+  .when('/roles',{
+    templateUrl: 'views/roles.html',
+    controller:'SuperController'
+  })
+  .when('/sucursales',{
+    templateUrl: 'views/sucursales.html',
+    controller:'SucursalesController'
+  })
+  .otherwise({
     redirectTo:'/home'
   })
 
@@ -49,8 +54,8 @@ superApp.controller('SuperController', ['$scope', '$http', function ($scope, $ht
   };
 
   $scope.addRol = function () {
-    nombre: $scope.nrol.nombre,
     $scope.roles.push({
+      nombre: $scope.nrol.nombre,
       descripcion: $scope.nrol.descripcion,
       available: true
     });
@@ -68,6 +73,33 @@ superApp.controller('SuperController', ['$scope', '$http', function ($scope, $ht
 
 
 
+}]);
+
+
+superApp.controller('SucursalesController', ['$scope', '$http', function ($scope, $http) {
+
+  $scope.eliminarSucursal= function (rol) {
+    var posSuc = $scope.sucursales.indexOf(rol);
+    $scope.sucursales.splice(posSuc, 1);
+  };
+
+  $scope.addSuc = function () {
+
+    $scope.sucursales.push({
+      nombre: $scope.nsuc.nombre,
+      direccion: $scope.nsuc.direccion,
+      telefono: $scope.nsuc.telefono,
+      administrador: $scope.nsuc.administrador,
+    });
+    $scope.nsuc.nombre="";
+    $scope.nsuc.direccion="";
+    $scope.nsuc.telefono="";
+    $scope.nsuc.administrador="";
+  };
+
+  $http.get('data/sucursales.json').then(function(data){
+    $scope.sucursales=data.data;
+  });
 }]);
 
 superApp.controller('ContactController', ['$scope','$location',function ($scope,$location) {

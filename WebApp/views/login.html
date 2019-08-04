@@ -1,29 +1,18 @@
 <div class="form-style">
   <h2>Inicio de sesión</h2>
-  <form name="contactForm" ng-submit="sendMessage()" novalidate>
+  <form name="loginForm" ng-submit="sendMessage()" novalidate>
     <input type="text" name="name" placeholder="Nombre" ng-model="contact.name" ng-required="true"/>
-    <!--
-    <div class="content">
-    <span>
-      $pristine - {{contactForm.name.$pristine}},
-      $dirty - {{contactForm.name.$dirty}},
-      $untouched - {{contactForm.name.$untouched}},
-      $touched - {{contactForm.name.$touched}},
-      $invalid - {{contactForm.name.$invalid}},
-      $valid - {{contactForm.name.$valid}},
-    </span>
-    -->
-    <div ng-show="contactForm.name.$touched && contactForm.name.$invalid">
-      <small style= "color: red; display: block; text-align: center;">Ingrese un nombre válido</small>
+    <div ng-show="loginForm.name.$touched && loginForm.name.$invalid">
+      <small style= "color: #c62828; display: block; text-align: center;">Ingrese un nombre válido</small>
     </div>
     <input type="email" name="email" placeholder="Correo" ng-model="contact.email" ng-required="true"/>
-    <div ng-show="contactForm.email.$touched && contactForm.email.$invalid">
-      <small style= "color: red; display: block; text-align: center;">Ingrese un correo válido</small>
+    <div ng-show="loginForm.email.$touched && loginForm.email.$invalid">
+      <small style= "color: #c62828; display: block; text-align: center;">Ingrese un correo válido</small>
     </div>
     <input type="password" name="password" placeholder="Contraseña" ng-model="contact.password" ng-required="true"/>
-    <div ng-show="contactForm.password.$touched && contactForm.password.$invalid">
-      <small style= "color: #b71c1c; display: block; text-align: center;">Ingrese una contraseña válido</small>
+    <div ng-show="loginForm.password.$touched && loginForm.password.$invalid">
+      <small style= "color: #c62828; display: block; text-align: center;">Ingrese una contraseña válida</small>
     </div>
-    <input type="submit"  value="Send" ng-disabled="contactForm.$invalid"/>
+    <input type="submit"  value="Send" ng-disabled="loginForm.$invalid"/>
   </form>
 </div>
