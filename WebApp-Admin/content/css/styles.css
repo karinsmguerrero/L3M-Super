@@ -8,6 +8,7 @@ body{
 h1,h2,h3{
   margin: 0;
   font-family: 'Open Sans Condensed', arial, sans;
+  font-weight: normal;
 }
 
 .belt{
@@ -75,11 +76,12 @@ main{
 }
 
 .content input{
-  width: 90%;
+  width: 70%;
   padding: 10px 5%;
   border-radius: 10px;
   border: 2px solid #ddd;
   margin: 10px 0;
+  margin-left: 35px;
 }
 
 .content input[type="submit"]:last-child{
@@ -165,24 +167,24 @@ main.ng-enter.ng-enter-active {
   opacity:1;
 }
 
-#rol-list li.ng-enter {
+#table-style li.ng-enter {
   transition:0.2s linear all;
   opacity:0;
   transform: translateY(30px);
 }
 
-#rol-list li.ng-enter.ng-enter-active {
+#table-style li.ng-enter.ng-enter-active {
   opacity:1;
   transform: translateY(0);
 }
 
-#rol-list li.ng-leave {
+#table-style li.ng-leave {
   transition:0.5s linear all;
   opacity:1;
   transform: translateX(0);
 }
 
-#rol-list li.ng-leave.ng-leave-active {
+#table-style li.ng-leave.ng-leave-active {
   opacity:0;
   transform: translateX(-100%);
 }

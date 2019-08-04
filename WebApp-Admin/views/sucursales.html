@@ -1,7 +1,9 @@
 <div class="content">
-  <!--<p>{{message}} </p>-->
-  <input type="text" ng-model="busqueda" placeholder="Buscar..."/>
-  <br></br>
+  <div>
+    <h3 style="color:#37474f; padding=10px">Búsqueda: <input type="text" ng-model="busqueda" placeholder="Buscar..."/></h3>
+    <br>
+  </div>
+  <br>
   <table id="table-style">
   <tr>
     <th>Nombre</th>
@@ -18,7 +20,9 @@
       <td><div class="remove" ng-click="eliminarSucursal(sucursal)">x</div></td>
     </tr>
   </table>
-
+  <br><br><br>
+  <h2 style="color:#eceff1; text-align:center; background-color:#1565c0; padding:20px"">Agregar sucursal</h2>
+  <br><br>
   <form name="sucursalForm" ng-submit="addSuc()" novalidate>
     <input type="text" placeholder="Nombre" ng-model="nsuc.nombre" ng-required="true">
     <input type="text" placeholder="Dirección" ng-model="nsuc.direccion" ng-required="true">
