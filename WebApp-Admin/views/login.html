@@ -1,0 +1,18 @@
+<div class="form-style">
+  <h2>Inicio de sesión</h2>
+  <form name="loginForm" ng-submit="sendMessage()" novalidate>
+    <input type="text" name="name" placeholder="Nombre" ng-model="user.name" ng-required="true"/>
+    <div ng-show="loginForm.name.$touched && loginForm.name.$invalid">
+      <small style= "color: #c62828; display: block; text-align: center;">Ingrese un nombre válido</small>
+    </div>
+    <input type="email" name="email" placeholder="Correo" ng-model="user.email" ng-required="true"/>
+    <div ng-show="loginForm.email.$touched && loginForm.email.$invalid">
+      <small style= "color: #c62828; display: block; text-align: center;">Ingrese un correo válido</small>
+    </div>
+    <input type="password" name="password" placeholder="Contraseña" ng-model="user.password" ng-required="true"/>
+    <div ng-show="loginForm.password.$touched && loginForm.password.$invalid">
+      <small style= "color: #c62828; display: block; text-align: center;">Ingrese una contraseña válida</small>
+    </div>
+    <input type="submit"  value="Send" ng-disabled="loginForm.$invalid"/>
+  </form>
+</div>
