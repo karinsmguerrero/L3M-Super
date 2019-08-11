@@ -1,0 +1,18 @@
+[{
+	"nombre": "Jose Pablo",
+	"semana": "4",
+	"horas": "10",
+	"sucursal": "Base A"
+},
+{
+  "nombre": "Pedro",
+	"semana": "10",
+	"horas": "15",
+	"sucursal": "Base B"
+},
+{
+  "nombre": "Mario",
+	"semana": "13",
+	"horas": "20",
+	"sucursal": "Base C"
+}]
