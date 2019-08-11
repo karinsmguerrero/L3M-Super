@@ -5,32 +5,33 @@
 </div>
 
 <div class="content">
-  <div>
     <h3 style="color:#37474f; padding=10px">Búsqueda: <input type="text" ng-model="busqueda" placeholder="Buscar..."/></h3>
     <br>
-  </div>
   <br>
-  <table id="table-style">
-  <tr>
-    <th>Puesto</th>
-    <th>Descripción</th>
-    <th></th>
-  </tr>
-    <tr  ng-repeat="rol in roles | orderBy: orden | filter: busqueda" ng-show:"true">
-      <td><h3>{{rol.nombre}}</h3></td>
-      <td>{{rol.descripcion}}</td>
-      <td><div class="remove" ng-click="eliminarRol(rol)">x</div></td>
-    </tr>
-  </table>
+</div>
+  <div class="table-responsive">
+    <table class="table"> <!--id="table-style" --->
+      <tr style="background:#4CAF50;; color:#FFFFFF">
+        <th><h3>Puesto</h3></th>
+        <th><h3>Descripción</h3></th>
+        <th></th>
+      </tr>
+      <tr ng-repeat="rol in roles | orderBy: orden | filter: busqueda" ng-show:"true" class="active">
+        <td ><h4>{{rol.nombre}}</h3></td>
+        <td>{{rol.descripcion}}</td>
+        <td><div class="remove" ng-click="eliminarRol(rol)">x</div></td>
+      </tr>
+    </table>
+  </div>
   <br><br><br>
-    <div>
-      <h2 style="color:#eceff1; text-align:center; background-color:#1565c0; padding:20px"">Agregar roles</h2>
-      <br><br>
-      <form name="rolForm" ng-submit="addRol()" novalidate>
-        <input  type="text" placeholder="Nombre" ng-model="nrol.nombre" ng-required="true"  >
-        <input  type="text" placeholder="Descripción" ng-model="nrol.descripcion" ng-required="true" >
-        <input type="submit" value= "Nuevo rol" ng-disabled="rolForm.$invalid"/>
-      </form>
-    </div>
-
+<div class="container">
+  <h3 style=>Agregar roles <span class="label label-primary">Nuevo</span></h3>
+  <br><br>
+</div>
+<div class="content">
+  <form name="rolForm" ng-submit="addRol()" novalidate>
+    <input  type="text" placeholder="Nombre" ng-model="nrol.nombre" ng-required="true"  >
+    <input  type="text" placeholder="Descripción" ng-model="nrol.descripcion" ng-required="true" >
+    <input type="submit" value= "Nuevo rol" ng-disabled="rolForm.$invalid"/>
+</form>
 </div>

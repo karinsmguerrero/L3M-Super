@@ -4,26 +4,16 @@ body{
   font-family: 'Open Sans Condensed', arial, sans;
   margin: 0;
 }
-
+/*
 h1,h2,h3{
   margin: 0;
   font-family: 'Open Sans Condensed', arial, sans;
   font-weight: normal;
-}
+}*/
 
-.belt{
-  padding: 5px 10px;
-  border-radius: 10px;
-  margin-left: 5px;
-  color: #FFFFF;
-  font-size: 15px;
-  text-transform: uppercase;
-  margin:auto;
-  /*tyle= "margin: -12px 10px 0 0; float: left; width: 50px;"*/
-}
 
 main{
-  background: #eee;
+
   width: 80%;
   margin: 30px auto;
   border-radius: 10px;
