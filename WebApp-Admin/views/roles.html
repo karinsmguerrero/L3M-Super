@@ -6,9 +6,9 @@
   <br>
   <form class="form-horizontal" action="">
     <div class="form-group">
-      <label for="busqueda" class="control-label col-md-2">Búsqueda:</label>
-      <div class="col-md-4">
-        <input class="form-control" type="text" ng-model="busqueda" placeholder="Buscar..."/>
+      <label for="busqueda" class="control-label col-md-1">Búsqueda:</label>
+      <div class="col-md-5">
+        <input class="form-control" type="search" ng-model="busqueda" placeholder="Buscar..."/>
       </div>
     </div>
   </form>
@@ -18,12 +18,12 @@
   <div class="table-responsive">
     <table class="table"> <!--id="table-style" --->
       <tr>
-        <th><h3>Puesto</h3></th>
-        <th><h3>Descripción</h3></th>
+        <th>Puesto</th>
+        <th>Descripción</th>
         <th></th>
       </tr>
       <tr ng-repeat="rol in roles | orderBy: orden | filter: busqueda" ng-show:"true" class="active">
-        <td ><h4>{{rol.nombre}}</h3></td>
+        <td>{{rol.nombre}}</td>
         <td>{{rol.descripcion}}</td>
         <td><div class="remove" ng-click="eliminarRol(rol)">x</div></td>
       </tr>
@@ -48,7 +48,7 @@
     </div>
     <div class="form-group">
       <div class="col-md-4 col-md-offset-3">
-        <input class="btn btn-primary" type="submit" value= "Nuevo rol" ng-disabled="rolForm.$invalid"/>
+        <input class="btn btn-primary" type="submit" value= "Agregar" ng-disabled="rolForm.$invalid"/>
       </div>
     </div>
 </form>

@@ -1,0 +1,58 @@
+<div class="container">
+  <h1 style="color:#263238">Gestión de Proveedores</h1>
+</div>
+
+<div class="container">
+  <br>
+  <form class="form-horizontal" action="">
+    <div class="form-group">
+
+      <label for="busqueda" class="control-label col-md-1">Búsqueda:</label>
+      <div class="col-md-5">
+        <input class="form-control" type="search" ng-model="busqueda" placeholder="Buscar..."/>
+      </div>
+      <div class="col-md-6"></div>
+    </div>
+  </form>
+</div>
+<br><br>
+
+  <div class="table-responsive">
+    <table class="table"> <!--id="table-style" --->
+      <tr>
+        <th>Proveedor</th>
+        <th>Cédula</th>
+        <th></th>
+      </tr>
+      <tr ng-repeat="proveedor in proveedores | orderBy: orden | filter: busqueda" ng-show:"true" class="active">
+        <td >{{proveedor.nombre}}</td>
+        <td>{{proveedor.cedula}}</td>
+        <td><div class="remove" ng-click="eliminarProveedor(proveedor)">x</div></td>
+      </tr>
+    </table>
+  </div>
+  <br><br><br>
+<div class="container">
+  <h3 style="">     Agregar proveedor <span class="label label-warning">Nuevo</span></h3>
+  <br><br>
+  <form name="proveedorForm" ng-submit="addProveedor()" novalidate class="form-horizontal">
+    <div class="form-group">
+      <label for="nombre" class="control-label col-md-2">Nombre:</label>
+      <div class="col-md-4">
+        <input  class="form-control" type="text" placeholder="Nombre" ng-model="nprov.nombre" ng-required="true"  >
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="descripcion" class="control-label col-md-2">Cédula:</label>
+      <div class="col-md-4">
+        <input  class="form-control" type="tel" placeholder="Cédula" ng-model="nprov.cedula" ng-required="true"
+        pattern="[1-9]{1}[0-9]{10}" >
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-4 col-md-offset-3">
+        <input class="btn btn-primary" type="submit" value= "Agregar" ng-disabled="proveedorForm.$invalid"/>
+      </div>
+    </div>
+</form>
+</div>

@@ -1,6 +1,7 @@
  var superApp = angular.module('superApp',['ngRoute','ngAnimate']);
 /**
 * Run before the app Start
+* Rutas de las pafinas
 **/
 superApp.config(['$routeProvider',function($routeProvider){
   $routeProvider
@@ -32,6 +33,10 @@ superApp.config(['$routeProvider',function($routeProvider){
     templateUrl: 'views/sucursales.html',
     controller:'SucursalesController'
   })
+  .when('/proveedores',{
+    templateUrl: 'views/proveedores.html',
+    controller:'ProveedoresController'
+  })
   .otherwise({
     redirectTo:'/home'
   })
@@ -57,6 +62,10 @@ superApp.run(function () {
   };*/
 });
 
+/**
+*Controlador de la vista de gestion de Roles
+*
+*/
 superApp.controller('SuperController', ['$scope', '$http', function ($scope, $http) {
 
   $scope.eliminarRol= function (rol) {
@@ -81,12 +90,45 @@ superApp.controller('SuperController', ['$scope', '$http', function ($scope, $ht
   $http.get('data/roles.json').then(function(data){
     $scope.roles=data.data;
   });
-
-
-
-
-
 }]);
+
+
+/**
+*Controlador de la vista de gestion de
+*proveedores
+*
+*/
+superApp.controller('ProveedoresController', ['$scope', '$http', function ($scope, $http) {
+
+  $scope.eliminarProveedor= function (proveedor) {
+    var posProv = $scope.proveedores.indexOf(proveedor);
+    $scope.proveedores.splice(posProv, 1);
+  };
+
+  $scope.addProveedor = function () {
+    $scope.proveedores.push({
+      nombre: $scope.nprov.nombre,
+      cedula: $scope.nprov.cedula
+    });
+    $scope.nprov.nombre="";
+    $scope.nprov.cedula=""
+  };
+
+  $scope.removeAll = function(){
+    $scope.proveedores = []
+  };
+
+
+  $http.get('data/proveedores.json').then(function(data){
+    $scope.proveedores=data.data;
+  });
+}]);
+
+
+/**
+* Controlador de la vista de horarios
+*
+*/
 superApp.controller('HorarioController', ['$scope', '$http', function ($scope, $http) {
 
   $scope.eliminarHorario= function (rol) {
