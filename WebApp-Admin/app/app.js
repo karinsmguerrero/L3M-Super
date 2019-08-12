@@ -36,13 +36,25 @@ superApp.config(['$routeProvider',function($routeProvider){
     redirectTo:'/home'
   })
 
+
+
 }]);
 
 /**
 *Run when app is running
 **/
 superApp.run(function () {
-
+/*  $scope.navs=[{
+    url:'/nav-mobile.html'
+  },{
+    url:'/nav-bar.html'
+  }];
+  $scope.nav=$scope.navs[1];
+  var nua = navigator.userAgent;
+  var isAndroid = (nua.indexOf('Mozilla/5.0') > -1 && nua.indexOf('Android ') > -1 && nua.indexOf('AppleWebKit') > -1 && nua.indexOf('Chrome') === -1)
+  if (isAndroid) {
+    $scope.nav=$scope.navs[0];
+  };*/
 });
 
 superApp.controller('SuperController', ['$scope', '$http', function ($scope, $http) {
@@ -65,9 +77,12 @@ superApp.controller('SuperController', ['$scope', '$http', function ($scope, $ht
     $scope.roles = []
   };
 
+
   $http.get('data/roles.json').then(function(data){
     $scope.roles=data.data;
   });
+
+
 
 
 
@@ -125,7 +140,38 @@ superApp.controller('SucursalesController', ['$scope', '$http', function ($scope
 
 superApp.controller('LoginController', ['$scope','$location',function ($scope,$location) {
   $scope.sendMessage= function () {
-    $location.path('/contact-success');
+    $location.path('/login-success');
 
   };
 }]);
+
+
+superApp.controller('NavController', ['$scope',function ($scope) {
+
+    $scope.path=function () {
+      var nua = navigator.userAgent;
+      var isAndroid = (nua.indexOf('Mozilla/5.0') > -1 && nua.indexOf('Android ') > -1 && nua.indexOf('AppleWebKit') > -1 && nua.indexOf('Chrome') === -1)
+      if (isAndroid) {
+        $scope.path.src="'nav-mobile.html'";
+      }else{
+        $scope.path.src="'nav-bar.html'";
+      }
+    };
+
+
+}]);
+
+function NavController() {
+  $scope.navs=[{
+    url:'nav-mobile.html'
+  },{
+    url:'nav-bar.html'
+  }];
+  $scope.nav=$scope.navs[1];
+  var nua = navigator.userAgent;
+  var isAndroid = (nua.indexOf('Mozilla/5.0') > -1 && nua.indexOf('Android ') > -1 && nua.indexOf('AppleWebKit') > -1 && nua.indexOf('Chrome') === -1)
+  if (isAndroid) {
+    $scope.nav=$scope.navs[0];
+  };
+
+}

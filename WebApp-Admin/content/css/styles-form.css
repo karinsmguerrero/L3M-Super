@@ -48,6 +48,8 @@
 	resize:none;
 	overflow: hidden;
 }
+
+/*
 .form-style input[type="button"],
 .form-style input[type="submit"]{
 	-moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
@@ -72,7 +74,7 @@
 .form-style input[type="submit"]:hover {
 	background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
 	background-color:#34CACA;
-}
+}*/
 
 .form-style input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched{
   border: 2px solid #b71c1c;
