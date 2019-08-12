@@ -1,18 +1,18 @@
 [{
 	"nombre": "Jose Pablo",
-	"semana": "4",
-	"horas": "10",
+	"semana": "04/05/19",
+	"horas": "44",
 	"sucursal": "Base A"
 },
 {
   "nombre": "Pedro",
-	"semana": "10",
-	"horas": "15",
+	"semana": "10/06/19",
+	"horas": "42",
 	"sucursal": "Base B"
 },
 {
   "nombre": "Mario",
-	"semana": "13",
-	"horas": "20",
+	"semana": "13/07/19",
+	"horas": "50",
 	"sucursal": "Base C"
 }]

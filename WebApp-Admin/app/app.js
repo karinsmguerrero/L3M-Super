@@ -22,8 +22,8 @@ superApp.config(['$routeProvider',function($routeProvider){
     controller:'LoginController'
   })
   .when('/a', {
-    templateUrl: 'views/gestionRoles.html',
-    controller:'SuperController'
+    templateUrl: 'views/hora.html',
+    controller:'HorarioController'
   })
   .when('/roles',{
     templateUrl: 'views/roles.html',
