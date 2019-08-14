@@ -8,9 +8,9 @@ superApp.config(['$routeProvider',function($routeProvider){
     templateUrl: 'views/home.html',
     controller:'SuperController'
   })
-  .when ('/horario', {
-    templateUrl: 'views/horario.html',
-    controller:'HorarioController'
+  .when ('/productos', {
+    templateUrl: 'views/productos.html',
+    controller:'ProductosController'
   })
   .when('/login-success', {
     templateUrl: 'views/login-success.html',
@@ -87,28 +87,27 @@ superApp.controller('SuperController', ['$scope', '$http', function ($scope, $ht
 
 
 }]);
-superApp.controller('HorarioController', ['$scope', '$http', function ($scope, $http) {
+superApp.controller('ProductosController', ['$scope', '$http', function ($scope, $http) {
 
-  $scope.eliminarHorario= function (rol) {
-    var poshor = $scope.horario.indexOf(rol);
-    $scope.horario.splice(poshor, 1);
+
+  $scope.eliminarProducto= function (rol) {
+    var posproc = $scope.productos.indexOf(rol);
+    $scope.productos.splice(posproc, 1);
   };
 
-  $scope.addHorario = function () {
-    $scope.horario.push({
-      nombre: $scope.nhor.nombre,
-      semana: $scope.nhor.semana,
-      horas: $scope.nhor.horas,
-      sucursal: $scope.nhor.sucursal,
+  $scope.addProducto = function () {
+    $scope.productos.push({
+      nombre: $scope.nproc.nombre,
+      costo: $scope.nproc.costo,
+      cantidad: $scope.nproc.cantidad,
     });
-    $scope.nhor.nombre="";
-    $scope.nhor.semana="";
-    $scope.nhor.horas="";
-    $scope.nhor.sucursal="";
+    $scope.nproc.nombre="";
+    $scope.nproc.costo="";
+    $scope.nproc.cantidad="";
   };
 
-  $http.get('data/horario.json').then(function(data){
-    $scope.horario=data.data;
+  $http.get('data/productos.json').then(function(data){
+    $scope.productos=data.data;
   });
 }]);
 
