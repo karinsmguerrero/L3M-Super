@@ -1,0 +1,15 @@
+[{
+	"nombre": "Pan",
+	"costo": "4",
+	"cantidad": "10"
+},
+{
+  "nombre": "Queso",
+	"costo": "10",
+	"cantidad": "15"
+},
+{
+  "nombre": "Jabon",
+	"costo": "13",
+	"cantidad": "20"
+}]
