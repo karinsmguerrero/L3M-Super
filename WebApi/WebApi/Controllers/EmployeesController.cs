@@ -4,15 +4,33 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Xml;
+using WebApi.Models;
 
 namespace WebApi.Controllers
 {
     public class EmployeesController : ApiController
     {
         // GET: api/Employees
-        public IEnumerable<string> Get()
+        public IEnumerable<Employee> Get()
         {
-            return new string[] { "value1", "value2" };
+            XmlDocument xml = new XmlDocument();
+            xml.Load("~/Data/Administration.xml");
+            XmlNode root = xml.FirstChild;
+            string xPathString = "/employees";
+            XmlElement Employees = (XmlElement)xml.DocumentElement.SelectSingleNode(xPathString);
+            
+            var list = new List<Employee>();
+
+            foreach (XmlElement node in Employees.ChildNodes)
+            {
+                string id = node.GetAttributeNode("id").InnerXml;
+                string name = node["name"].InnerText;
+
+                list.Add(new Employee() { Name = name });
+            }
+
+            return list;
         }
 
         // GET: api/Employees/5

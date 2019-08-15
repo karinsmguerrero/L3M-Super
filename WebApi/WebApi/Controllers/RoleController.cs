@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Xml;
 using WebApi.Models;
 
 namespace WebApi.Controllers
@@ -13,13 +14,24 @@ namespace WebApi.Controllers
         // GET: api/Role
         public IEnumerable<Role> Get()
         {
-            var list = new List<Role>
+            XmlDocument xml = new XmlDocument();
+            xml.Load("C:/Users/karin/Dropbox/TEC/2019/II semestre/Bases de datos/Tarea 1/WebApi/WebApi/Data/Administration.xml");
+            var list = new List<Role>();
+
+            XmlNodeList roles = xml.DocumentElement.SelectNodes("/root/roles/role");
+            
+            foreach (XmlNode role in roles)
             {
-                new Role() { Name = "Administrador" , Description = "Lorem ipsum"},
-                new Role() { Name = "Vendedor" , Description = "Lorem ipsum" },
-                new Role() { Name = "Gerente" , Description = "Lorem ipsum" },
-                new Role() { Name = "Cajero" , Description = "Lorem ipsum" }
-            };
+                string name = role.Attributes["name"].Value;
+                string description = role.InnerText;
+                list.Add(new Role()
+                {
+                    Name = name,
+                    Description = description
+                });
+            }
+
+
             return list;
         }
 

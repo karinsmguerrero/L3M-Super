@@ -15,7 +15,7 @@ namespace WebApi.Controllers
         public IEnumerable<Cat> GetAll()
         {
             XmlDocument xml = new XmlDocument();
-             xml.Load("C:/Users/karin/source/repos/WebApi/WebApi/Data/cat_register.xml");
+             xml.Load("~/Data/cat_register.xml");
              var list = new List<Cat>();
 
              foreach (XmlNode node in xml.DocumentElement)
