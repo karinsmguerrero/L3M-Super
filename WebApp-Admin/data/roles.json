@@ -1,0 +1,21 @@
+[{
+	"nombre": "Jefe",
+	"descripcion": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+}, {
+	"nombre": "Gerente",
+	"descripcion": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+}, {
+	"nombre": "Contador",
+	"descripcion": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+}, {
+	"nombre": "Cajero",
+	"descripcion": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+},
+{
+	"nombre": "Guarda",
+	"descripcion": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+},
+{
+	"nombre": "Conserje",
+	"descripcion": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+}]
