@@ -1,0 +1,21 @@
+[{
+	"nombre": "Jefe",
+	"descripcion": "Black",
+	"available": true
+}, {
+	"nombre": "Gerente",
+	"descripcion": "red",
+	"available": true
+}, {
+	"nombre": "Contador",
+	"descripcion": "black",
+	"available": true
+}, {
+	"nombre": "Astronauta",
+	"descripcion": "pink",
+	"available": true
+},{
+	"nombre": "Conserje",
+	"descripcion": "green",
+	"available": true
+}]
