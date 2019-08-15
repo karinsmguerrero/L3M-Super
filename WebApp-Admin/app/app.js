@@ -37,6 +37,14 @@ superApp.config(['$routeProvider',function($routeProvider){
     templateUrl: 'views/proveedores.html',
     controller:'ProveedoresController'
   })
+  .when('/trabajadores',{
+  templateUrl: 'views/trabajadores.html',
+  controller:'TrabajadoresController'
+})
+.when('/productos', {
+  templateUrl: 'views/productos.html',
+  controller:'ProductosController'
+})
   .otherwise({
     redirectTo:'/home'
   })
@@ -92,6 +100,42 @@ superApp.controller('SuperController', ['$scope', '$http', function ($scope, $ht
   });
 }]);
 
+/**
+*
+*Controlador de la vista de gestion de Trabajadores
+*
+*/
+superApp.controller('TrabajadoresController', ['$scope', '$http', function ($scope, $http) {
+  $scope.eliminarTrabajador =  function (trabajador) {
+    var posTrab = $scope.trabajadores.indexOf(trabajador);
+    $scope.trabajadores.splice(posTrab, 1);
+  };
+
+  $scope.addTrabajador = function () {
+    $scope.trabajadores.push({
+      nombre: $scope.ntrab.nombre,
+      cedula: $scope.ntrab.cedula,
+      fechaNacimiento: $scope.ntrab.fechaNacimiento,
+      fechaIniTrabajo: $scope.ntrab.fechaIniTrabajo,
+      sucursal: $scope.ntrab.sucursal,
+      salarioPH: $scope.ntrab.salarioPH
+    });
+    $scope.ntrab.nombre = "";
+    $scope.ntrab.cedula = "";
+    $scope.ntrab.fechaNacimiento = "";
+    $scope.ntrab.fechaIniTrabajo = "";
+    $scope.ntrab.sucursal = "";
+    $scope.ntrab.salarioPH = ""
+  };
+
+  $scope.removeAll = function() {
+    $scope.trabajadores = []
+  };
+
+  $http.get('data/trabajadores.json').then(function(data) {
+    $scope.trabajadores = data.data;
+  });
+}]);
 
 /**
 *Controlador de la vista de gestion de
