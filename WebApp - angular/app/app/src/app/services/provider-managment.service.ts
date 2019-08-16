@@ -14,14 +14,14 @@ export class ProviderManagmentService {
   constructor(private http: HttpClient) { }
 
   submitProvider(formData: Provider) {
-    return this.http.post(this.rootURL + '/Proveedores', formData);
+    return this.http.post(this.rootURL + '/Provider', formData);
   }
 
   getProviders() {
-    this.http.get(this.rootURL + '/Proveedores').toPromise().then(res => this.providerList = res as Provider[]);
+    this.http.get(this.rootURL + '/Provider').toPromise().then(res => this.providerList = res as Provider[]);
   }
 
   deleteProvider(Id: number) {
-    return this.http.delete(this.rootURL + '/Proveedores/' + Id);
+    return this.http.delete(this.rootURL + '/Provider/' + Id);
   }
 }

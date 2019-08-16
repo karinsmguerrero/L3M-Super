@@ -44,30 +44,90 @@ namespace WebApi.Controllers
         }
 
         // GET: api/Products/5
-        public Product Get(int product_id)
+        public IEnumerable<Product> Get(int branch_id)
         {
-            XmlDocument xml = new XmlDocument();
-            xml.Load(xmlPath);
-
-            var list = new List<Product>();
-            XmlNodeList products = xml.DocumentElement.SelectNodes("/root/products/product");
-            Product result = new Product();
-
-            foreach (XmlNode product in products)
+            if(branch_id == 1)
             {
-                if (int.Parse(product.Attributes["id"].Value) == product_id)
+                XmlDocument xml = new XmlDocument();
+                xml.Load(Constants.XML_PATH + "Products-cartago.xml");
+
+                var list = new List<Product>();
+                XmlNodeList products = xml.DocumentElement.SelectNodes("/products/product");
+
+                foreach (XmlNode product in products)
                 {
-                    result.Id = product.Attributes["id"].Value;
-                    result.Name = product["name"].InnerText;
-                    result.Description = product["description"].InnerText;
-                    result.Tax = product["tax"].InnerText;
-                    result.Price = product["price"].InnerText;
-                    break;
+                    string id = product.Attributes["id"].Value;
+                    string name = product["name"].InnerText;
+                    string description = product["description"].InnerText;
+                    string tax = product["tax"].InnerText;
+                    string price = product["price"].InnerText;
+                    list.Add(new Product()
+                    {
+                        Name = name,
+                        Id = id,
+                        Description = description,
+                        Tax = tax,
+                        Price = price
+                    });
                 }
 
+                return list;
             }
+            if(branch_id == 2)
+            {
+                XmlDocument xml = new XmlDocument();
+                xml.Load(Constants.XML_PATH + "Products-sanjose.xml");
 
-            return result;
+                var list = new List<Product>();
+                XmlNodeList products = xml.DocumentElement.SelectNodes("/products/product");
+
+                foreach (XmlNode product in products)
+                {
+                    string id = product.Attributes["id"].Value;
+                    string name = product["name"].InnerText;
+                    string description = product["description"].InnerText;
+                    string tax = product["tax"].InnerText;
+                    string price = product["price"].InnerText;
+                    list.Add(new Product()
+                    {
+                        Name = name,
+                        Id = id,
+                        Description = description,
+                        Tax = tax,
+                        Price = price
+                    });
+                }
+
+                return list;
+            }
+            else
+            {
+                XmlDocument xml = new XmlDocument();
+                xml.Load(Constants.XML_PATH + "Products-heredia.xml");
+
+                var list = new List<Product>();
+                XmlNodeList products = xml.DocumentElement.SelectNodes("/products/product");
+
+                foreach (XmlNode product in products)
+                {
+                    string id = product.Attributes["id"].Value;
+                    string name = product["name"].InnerText;
+                    string description = product["description"].InnerText;
+                    string tax = product["tax"].InnerText;
+                    string price = product["price"].InnerText;
+                    list.Add(new Product()
+                    {
+                        Name = name,
+                        Id = id,
+                        Description = description,
+                        Tax = tax,
+                        Price = price
+                    });
+                }
+
+                return list;
+            }
+            
         }
 
         // POST: api/Products

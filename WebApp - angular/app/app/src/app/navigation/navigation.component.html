@@ -1,16 +1,42 @@
-<div class="navbar navbar-default navbar-fixed-top" id="nav-bar">
-    <ul>
-     <li><a routerLink="/home">Inicio</a></li>
-     <li><a routerLink="/Role">Roles</a></li>
-     <li><a routerLink="/Sucursales">Sucursales</a></li>
-     <li><a routerLink="/Trabajadores">Trabajadores</a></li>
-     <li><a routerLink="/Proveedores">Proveedores</a></li>
-     <li><a routerLink="/Productos">Productos</a></li>
-     <li><a routerLink="/Compras">Compras</a></li>
-     <li><a routerLink="/Horario">Horario</a></li>
-     <li><a routerLink="/Planilla">Planilla</a></li>
-  
-     <li style="float:right"><a class="active" routerLink="/login">Login</a></li>
-    </ul>
-  </div>
-  
+<div class="hidden-xs navbar navbar-default navbar-fixed-top" id="nav-bar">
+  <ul>
+   <li><a routerLink="/Administracion">Inicio</a></li>
+   <li><a routerLink="/Administracion/Role">Roles</a></li>
+   <li><a routerLink="/Administracion/Sucursales">Sucursales</a></li>
+   <li><a routerLink="/Administracion/Trabajadores">Trabajadores</a></li>
+   <li><a routerLink="/Administracion/Proveedores">Proveedores</a></li>
+   <li><a routerLink="/Administracion/Productos">Productos</a></li>
+   <li><a routerLink="/Administracion/Compras">Compras</a></li>
+   <li><a routerLink="/Administracion/Horario">Horario</a></li>
+   <li><a routerLink="/Administracion/Planilla">Planilla</a></li>
+
+   <li style="float:right"><a class="active" routerLink="/Login">Login</a></li>
+  </ul>
+</div>
+
+
+<div class="visible-xs hidden-sm hidden-md hidden-lg" id="nav-mobile">
+  <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-mobile">
+            <span class="sr-only">Menú</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="#!/home" class="navbar-brand">L3M Super</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-mobile">
+        <ul class="nav navbar-nav">
+          <li><a routerLink="/Role">Roles</a></li>
+          <li><a routerLink="/Home">Compras</a></li>
+          <li><a routerLink="/horario">Horario</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a routerLink="/Login">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>

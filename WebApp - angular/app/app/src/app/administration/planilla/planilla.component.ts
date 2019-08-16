@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { EmployeeManagementService } from 'src/app/services/employee-management.service';
+import { Employee } from 'src/app/models/employee.model';
+
 
 @Component({
   selector: 'app-planilla',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanillaComponent implements OnInit {
 
-  constructor() { }
+  constructor( private service : EmployeeManagementService) { }
 
   ngOnInit() {
+    this.service.getEmployee();
   }
 
+  populateForm(employee : Employee){
+
+  }
 }

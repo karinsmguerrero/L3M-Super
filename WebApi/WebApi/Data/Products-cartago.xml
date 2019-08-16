@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<products>
+  <product id="00001">
+    <name>Leche 1L</name>
+    <description>Caja de leche de 1 litro Dos Pinos</description>
+    <tax>false</tax>
+    <price>500</price>
+  </product>
+</products>

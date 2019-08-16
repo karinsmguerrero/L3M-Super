@@ -18,6 +18,12 @@ import { ProveedoresComponent } from './administration/proveedores/proveedores.c
 import { TrabajadoresComponent } from './administration/trabajadores/trabajadores.component';
 import { SucursalesComponent } from './administration/sucursales/sucursales.component';
 import { HorarioComponent } from './administration/horario/horario.component';
+import { LoginComponent } from './administration/login/login.component';
+import { ReportsComponent } from './reports/reports.component';
+import { MenuSelectionComponent } from './reports/menu-selection/menu-selection.component';
+import { ProductListComponent } from './reports/product-list/product-list.component';
+import { CostComponent } from './reports/cost/cost.component';
+import { ProductAllListComponent } from './reports/product-all-list/product-all-list.component';
 
 
 @NgModule({
@@ -33,7 +39,16 @@ import { HorarioComponent } from './administration/horario/horario.component';
     ProveedoresComponent,
     TrabajadoresComponent,
     SucursalesComponent,
-    HorarioComponent
+    HorarioComponent,
+    ComprasComponent,
+    HorarioComponent,
+    PlanillaComponent,
+    LoginComponent,
+    ReportsComponent,
+    MenuSelectionComponent,
+    ProductListComponent,
+    CostComponent,
+    ProductAllListComponent
   ],
   imports: [
     BrowserModule,

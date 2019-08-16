@@ -40,6 +40,15 @@
     <provider id="123456788">
       <name>Heinz</name>
     </provider>
+    <provider id="">
+      <name>Cefa</name>
+    </provider>
+    <provider id="11112222223">
+      <name>Dipo</name>
+    </provider>
+    <provider id="456789065">
+      <name>Pozuelo</name>
+    </provider>
   </providers>
   <branches>
     <branch name="san_jose">

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ShoppingManagmentService } from 'src/app/services/shopping-managment.service';
+import { Purchase } from 'src/app/models/purchase.model';
 
 @Component({
   selector: 'app-compras',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComprasComponent implements OnInit {
 
-  constructor() { }
+  constructor( private service : ShoppingManagmentService) { }
 
   ngOnInit() {
+    this.service.getShopping();
+  }
+
+  populateForm(purchase : Purchase){
+
   }
 
 }

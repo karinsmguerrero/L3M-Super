@@ -1,1 +1,89 @@
-<p>compras works!</p>
+<div class="container">
+    <h1 style="color:#263238"> Gestión de compras </h1>
+</div>
+
+<div class="container">
+    <br>
+    <form class="form-horizontal" action="">
+        <div class="form-group">
+            <label for="busqueda" class="control-label col-md-1"> Búsqueda: </label>
+            <div class="col-md-5">
+                <input class="form-control" type="search" ng-model="busqueda" placeholder="Buscar..." />
+            </div>
+            <div class="col-md-6"> </div>
+        </div>
+    </form>
+</div>
+
+<br><br>
+
+<div class="table-responsive">
+    <table class="table">
+        <!--id="table-style" -->
+        <tr>
+            <th> Descripcion </th>
+            <th> Fecha de la Compra </th>
+            <th> Fecha de Registro de la Compra </th>
+            <th> Proovedor </th>
+            <th> Sucursal de la Compra </th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let Purchase of service.shoppingList" class="active">
+            <td (click)="populateForm(Purchase)"> {{Purchase.Description}}</td>
+            <td>{{Purchase.PurchaseDate}}</td>
+            <td>{{Purchase.RegistrationDate}}</td>
+            <td>{{Purchase.Provider}}</td>
+            <td>{{Purchase.Branch}}</td>
+            
+            <td><button class="btn btn-sm btn-outline-danger">X</button></td>
+          </tr>
+    </table>
+</div>
+<br><br><br>
+
+<div class="container">
+    <h3> Agregar compra <span class="label label-warning">Nuevo</span></h3>
+    <br><br>
+    <form name="compraForm" ng-submit="addCompra()" novalidate class="form-horizontal">
+        <div class="form-group">
+            <label for="descripcion" class="control-label col-md-2">Descripcion:</label>
+            <div class="col-md-4">
+                <input class="form-control" type="text" placeholder="Descripcion" ng-model="ncomp.descripcion"
+                    ng-required="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="fechaDeCompra" class="control-label col-md-2">Fecha de la Compra:</label>
+            <div class="col-md-4">
+                <input class="form-control" type="date" placeholder="Fecha de la Compra" ng-model="ncomp.fechaDeCompra"
+                    ng-required="true" min="2010-01-01">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="fechaRegistroCompra" class="control-label col-md-2">Fecha de Registro de la Compra:</label>
+            <div class="col-md-4">
+                <input class="form-control" type="date" placeholder="Fecha de Registro de la Compra"
+                    ng-model="ncomp.fechaRegistroCompra" ng-required="true" min="2010/01/01">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="proveedor" class="control-label col-md-2">Proveedor:</label>
+            <div class="col-md-4">
+                <input class="form-control" type="text" placeholder="Proveedor" ng-model="ncomp.proveedor"
+                    ng-required="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="sucursalCompra" class="control-label col-md-2">Sucursal de la Compra:</label>
+            <div class="col-md-4">
+                <input class="form-control" type="text" placeholder="Sucursal de la Compra"
+                    ng-model="ncomp.Sucursal de la Compra" ng-required="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4 col-md-offset-3">
+                <input class="btn btn-primary" type="submit" value="Agregar" ng-disabled="compraForm.$invalid" />
+            </div>
+        </div>
+    </form>
+</div>
