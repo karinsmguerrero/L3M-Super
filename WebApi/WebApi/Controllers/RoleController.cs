@@ -5,13 +5,14 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Xml;
+using WebApi.Miscellaneous;
 using WebApi.Models;
 
 namespace WebApi.Controllers
 {
     public class RoleController : ApiController
     {
-        private string xmlPath = "C:/Users/karin/Dropbox/TEC/2019/II semestre/Bases de datos/Tarea 1/WebApi/WebApi/Data/Administration.xml";
+        private string xmlPath = Constants.XML_PATH + "Administration.xml";
         // GET: api/Role
         public IEnumerable<Role> Get()
         {

@@ -5,17 +5,20 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Xml;
+using WebApi.Miscellaneous;
 using WebApi.Models;
 
 namespace WebApi.Controllers
 {
     public class EmployeesController : ApiController
     {
+        private string xmlPath = Constants.XML_PATH + "Administration.xml";
+
         // GET: api/Employees
         public IEnumerable<Employee> Get()
         {
             XmlDocument xml = new XmlDocument();
-            xml.Load("C:/Users/karin/Dropbox/TEC/2019/II semestre/Bases de datos/Tarea 1/WebApi/WebApi/Data/Administration.xml");
+            xml.Load(xmlPath);
 
             var list = new List<Employee>();
             XmlNodeList employees = xml.DocumentElement.SelectNodes("/root/employees/employee");
@@ -43,14 +46,72 @@ namespace WebApi.Controllers
         }
 
         // GET: api/Employees/5
-        public string Get(int id)
+        public Employee Get(int employee_id)
         {
-            return "value";
+            XmlDocument xml = new XmlDocument();
+            xml.Load(xmlPath);
+
+            var list = new List<Employee>();
+            XmlNodeList employees = xml.DocumentElement.SelectNodes("/root/employees/employee");
+            Employee result = new Employee();
+
+            foreach (XmlNode employee in employees)
+            {
+                if(int.Parse(employee.Attributes["id"].Value) == employee_id)
+                {
+                    result.Id = employee.Attributes["id"].Value;
+                    result.Name = employee.InnerText;
+                    result.Birth = employee.InnerText;
+                    result.Hiring = employee.InnerText;
+                    result.Branch  = employee.InnerText;
+                    result.Salary = employee.InnerText;
+                    break;
+                }
+                
+            }
+
+            return result;
         }
 
         // POST: api/Employees
-        public void Post([FromBody]string value)
+        public void Post([FromBody]Employee value)
         {
+            XmlDocument xml = new XmlDocument();
+            xml.Load(xmlPath);
+
+            XmlNode employees = xml.DocumentElement.SelectSingleNode("/root/employees");
+
+            XmlNode newEmployee = xml.CreateElement("employee");
+
+            // Create attributes for role and append them to the role element.
+            XmlAttribute attribute = xml.CreateAttribute("id");
+            attribute.Value = value.Id;
+            newEmployee.Attributes.Append(attribute);
+
+          
+            // Create and append a child element for the description of the role.
+            XmlNode name = xml.CreateElement("name");
+            name.InnerText = value.Name;
+            newEmployee.AppendChild(name);
+
+            XmlNode birth = xml.CreateElement("birth-date");
+            birth.InnerText = value.Birth;
+            newEmployee.AppendChild(birth);
+
+            XmlNode hiring = xml.CreateElement("hire-date");
+            hiring.InnerText = value.Hiring;
+            newEmployee.AppendChild(hiring);
+
+            XmlNode branch = xml.CreateElement("branch");
+            branch.InnerText = value.Branch;
+            newEmployee.AppendChild(branch);
+
+            XmlNode salary = xml.CreateElement("salary");
+            salary.InnerText = value.Salary;
+            newEmployee.AppendChild(salary);
+
+            employees.AppendChild(newEmployee);
+            xml.Save(xmlPath);
         }
 
         // PUT: api/Employees/5
@@ -61,6 +122,21 @@ namespace WebApi.Controllers
         // DELETE: api/Employees/5
         public void Delete(int id)
         {
+            XmlDocument xml = new XmlDocument();
+            xml.Load(xmlPath);
+
+            XmlNodeList employees = xml.DocumentElement.SelectNodes("/root/employees/employee");
+
+            foreach (XmlNode employee in employees)
+            {
+                if (int.Parse(employee.Attributes["id"].Value) == id)
+                {
+                    xml.DocumentElement.SelectSingleNode("/root/employees").RemoveChild(employee);
+                    break;
+                }
+
+            }
+            xml.Save(xmlPath);
         }
     }
 }

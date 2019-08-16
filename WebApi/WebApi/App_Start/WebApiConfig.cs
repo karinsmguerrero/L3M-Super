@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using WebApi.App_Start;
 
 namespace WebApi
 {
@@ -11,7 +12,7 @@ namespace WebApi
         public static void Register(HttpConfiguration config)
         {
             //Enable CORS
-            config.EnableCors(new EnableCorsAttribute("http://localhost:4200",headers:"*",methods:"*"));
+            config.EnableCors(new EnableCorsAttribute("http://localhost:4200", headers: "*", methods: "*"));
 
             // Configuración y servicios de API web
 
@@ -21,8 +22,12 @@ namespace WebApi
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                defaults: new { id = RouteParameter.Optional },
+                constraints: new { id = new CustomRegExConstraint(@"[A-Za-z]*") }
+                //constraints: new { id = @"[A-Za-z]*" }
             );
+
+           
         }
     }
 }
