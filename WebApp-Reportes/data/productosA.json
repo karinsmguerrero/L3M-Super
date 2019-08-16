@@ -1,0 +1,18 @@
+[{
+	"nombre": "Pan",
+	"costo": "4",
+	"descripcion":"Harina",
+	"cantidad": "10"
+},
+{
+  "nombre": "Queso",
+	"costo": "10",
+	"descripcion":"Lacteo",
+	"cantidad": "15"
+},
+{
+  "nombre": "Jabon",
+	"costo": "13",
+	"descripcion":"Higiene",
+	"cantidad": "20"
+}]

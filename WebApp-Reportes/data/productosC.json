@@ -1,0 +1,18 @@
+[{
+	"nombre": "Pescado",
+	"costo": "4",
+	"descripcion":"Carne",
+	"cantidad": "10"
+},
+{
+  "nombre": "Maiz",
+	"costo": "10",
+	"descripcion":"Latas",
+	"cantidad": "15"
+},
+{
+  "nombre": "Peras",
+	"costo": "13",
+	"descripcion":"Frutas",
+	"cantidad": "20"
+}]
