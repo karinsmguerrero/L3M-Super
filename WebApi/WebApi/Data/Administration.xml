@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root xmlns:L3M="http://localhost:4200">
+  <roles>
+    <role name="Gerente">
+      <description>Encargado de la sucursal</description>
+    </role>
+    <role name="Cajero">
+      <description>Encargado de cobrar productos</description>
+    </role>
+    <role name="Contador">
+      <description>Encargado de la contabilidad</description>
+    </role>
+    <role name="Guarda">
+      <description>Encargado de la seguridad</description>
+    </role>
+    <role name="Conserje">
+      <description>Encargado de la limpieza</description>
+    </role>
+  </roles>
+  <employees>
+    <employee id="117110372">
+      <name>Karina Martínez Guerrero</name>
+      <birth-date>10/06/1998</birth-date>
+      <hire-date>01/04/2019</hire-date>
+      <branch>San José</branch>
+      <salary>2500</salary>
+    </employee>
+    <employee id="111111111">
+      <name>Gerald Valverde Mckinsey</name>
+      <birth-date>10/06/1998</birth-date>
+      <hire-date>01/04/2019</hire-date>
+      <branch>San José</branch>
+      <salary>2500</salary>
+    </employee>
+  </employees>
+  <providers>
+    <provider id="123456789">
+      <name>Unilever</name>
+    </provider>
+    <provider id="123456788">
+      <name>Heinz</name>
+    </provider>
+  </providers>
+  <branches>
+    <branch name="san_jose">
+      <direction>San José, Pavas</direction>
+      <administrator>Karina</administrator>
+      <phone>22131437</phone>
+    </branch>
+    <branch name="cartago">
+      <direction>Cartago, Oriental</direction>
+      <administrator>Gerald</administrator>
+      <phone>25501437</phone>
+    </branch>
+  </branches>
+</root>

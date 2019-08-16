@@ -11,6 +11,14 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { RoleManagementService } from './services/role-management.service';
 import { VentasComponent } from './ventas/ventas.component';
 import { EmployeeManagementService } from './services/employee-management.service';
+import { ComprasComponent } from './administration/compras/compras.component';
+import { PlanillaComponent } from './administration/planilla/planilla.component';
+import { ProductosComponent } from './administration/productos/productos.component';
+import { ProveedoresComponent } from './administration/proveedores/proveedores.component';
+import { TrabajadoresComponent } from './administration/trabajadores/trabajadores.component';
+import { SucursalesComponent } from './administration/sucursales/sucursales.component';
+import { HorarioComponent } from './administration/horario/horario.component';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +26,14 @@ import { EmployeeManagementService } from './services/employee-management.servic
     AdministrationComponent,
     RolesComponent,
     NavigationComponent,
-    VentasComponent
+    VentasComponent,
+    ComprasComponent,
+    PlanillaComponent,
+    ProductosComponent,
+    ProveedoresComponent,
+    TrabajadoresComponent,
+    SucursalesComponent,
+    HorarioComponent
   ],
   imports: [
     BrowserModule,

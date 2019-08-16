@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<products xmlns:L3M="http://localhost:4200">
+  <product id="00001">
+    <name>Leche 1L</name>
+    <description>Caja de leche de 1 litro Dos Pinos</description>
+    <tax>false</tax>
+    <price branch="san_jose">600</price>
+    <price branch="heredia">650</price>
+  </product>
+</products>

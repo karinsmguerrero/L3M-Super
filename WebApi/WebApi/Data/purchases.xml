@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<purchases xmlns:L3M="http://localhost:4200">
+  <purchase id="1">
+    <registry-date>10/03/2019</registry-date>
+    <submit-date>10/04/2019</submit-date>
+    <description>Compra de leche de 1L a dos pinos</description>
+    <provider>Dos Pinos</provider>
+    <branch>san_jose</branch>
+    <photo>factura.jpg</photo>
+  </purchase>
+  <purchase id="2">
+    <registry-date>10/03/2019</registry-date>
+    <submit-date>10/04/2019</submit-date>
+    <description>Compra de leche de 1 Gal a dos pinos</description>
+    <provider>Dos Pinos</provider>
+    <branch>san_jose</branch>
+    <photo>factura.jpg</photo>
+  </purchase>
+</purchases>
