@@ -1,0 +1,71 @@
+<div class="container">
+    <h1 style="color:#263238">Horario</h1>
+  </div>
+  
+  <br><br>
+  
+    <div class="table-responsive">
+      <table class="table">
+        <tr>
+          <th>Nombre</th>
+          <th>Semana</th>
+          <th>Horas</th>
+          <th>Sucursal</th>
+          <th>Extras</th>
+          <th></th>
+        </tr>
+       
+        <tr *ngFor="let Schedule of service.scheduleList" class="active">
+          <td (click)="populateForm(Schedule)"> {{Schedule.Name}}</td>
+          <td>{{Schedule.Name}}</td>
+          <td>{{Schedule.Week}}</td>
+          <td>{{Schedule.Hours}}</td>
+          <td>{{Schedule.Officce}}</td>
+          <td>{{Schedule.Hours-42}}</td>
+          <td><button class="btn btn-sm btn-outline-danger">X</button></td>
+        </tr>
+      </table>
+    </div>
+    <br><br><br>
+  <div class="container">
+    <h3 >Agregar Horario <span class="label label-warning">Agregar</span></h3>
+    <br><br>
+    <form name="horarioForm" ng-submit="addHorario()" novalidate class="form-horizontal">
+      <div class="form-group">
+        <label for="nombre" class="control-label col-md-2">Nombre:</label>
+        <div class="col-md-4">
+          <input  class="form-control"
+           type="text" placeholder="Nombre" ng-model="nhor.nombre" ng-required="true">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="semana" class="control-label col-md-2">Semana:</label>
+        <div class="col-md-4">
+          <input  class="form-control"
+           type="date" placeholder="Semana" ng-model="nhor.semana" ng-required="true" min="2019-01-01">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="horas" class="control-label col-md-2">Horas:</label>
+        <div class="col-md-4">
+          <input  class="form-control" type="number" min="42"
+          placeholder="Horas" ng-model="nhor.horas"  ng-required="true">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="sucursal" class="control-label col-md-2">Sucursal:</label>
+        <div class="col-md-4">
+          <input  class="form-control" type="text"
+          placeholder="Sucursal" ng-model="nhor.sucursal" ng-required="true">
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <div class="col-md-4 col-md-offset-3">
+          <input class="btn btn-primary" type="submit"
+          value= "Agregar" ng-disabled="horarioForm.$invalid"/>
+        </div>
+      </div>
+  </form>
+  </div>
+  

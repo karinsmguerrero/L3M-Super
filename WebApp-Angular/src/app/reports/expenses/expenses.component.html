@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <h1 style="color:#263238">Gastos</h1>
+        </div>
+        <div class="dropdown col-md-5">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  Sucursal
+                  <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a routerLink="/Reportes/Gastos/Cartago">Cartago</a></li>
+              <li><a routerLink="/Reportes/Gastos/Heredia">Heredia</a></li>
+              <li><a routerLink="/Reportes/Gastos/SanJose">San José</a></li>
+              <li><a routerLink="/Reportes/Gastos/Todas">Todas</a></li>
+            </ul>
+        </div>
+        
+    </div>
+        
+        <br><br>
+        <br><br>
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <th>Fecha</th>
+                    <th>Proveedor</th>
+                    <th>Descripción</th>
+                    <th>Costo</th>
+                    <th></th>
+                </tr>
+        
+                <tr *ngFor="let Expense of service.expenseList" class="active">
+                  <td (click)="populateForm(Expense)"> {{Expense.Date}}</td>
+                  <td>{{Expense.Provider}}</td>
+                  <td>{{Expense.Description}}</td>
+                  <td>{{Expense.Price}}</td>
+                  <td><button class="btn btn-sm btn-outline-danger">X</button></td>
+                </tr>
+              </table>
+        </div>
+       
+</div>      

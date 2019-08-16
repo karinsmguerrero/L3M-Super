@@ -1,0 +1,46 @@
+<div class="container">
+    <h1 style="color:#263238">Gestión de Proveedores</h1>
+  </div>
+  
+  <br><br>
+  
+    <div class="table-responsive">
+      <table class="table">
+        <tr>
+          <th>Proveedor</th>
+          <th>Cédula</th>
+          <th></th>
+        </tr>
+        <tr *ngFor="let Provider of service.providerList" class="active">
+          <td (click)="populateForm(Provider)"> {{Provider.Name}}</td>
+          <td>{{Provider.ID}}</td>
+          <td><button class="btn btn-sm btn-outline-danger">X</button></td>
+        </tr>
+      </table>
+    </div>
+    <br><br><br>
+  <div class="container">
+    <h3>     Agregar proveedor <span class="label label-warning">Nuevo</span></h3>
+    <br><br>
+    <form name="proveedorForm" ng-submit="addProveedor()" novalidate class="form-horizontal">
+      <div class="form-group">
+        <label for="nombre" class="control-label col-md-2">Nombre:</label>
+        <div class="col-md-4">
+          <input  class="form-control" type="text" placeholder="Nombre" ng-model="nprov.nombre" ng-required="true"  >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="descripcion" class="control-label col-md-2">Cédula:</label>
+        <div class="col-md-4">
+          <input  class="form-control" type="tel" placeholder="Cédula" ng-model="nprov.cedula" ng-required="true"
+          pattern="[1-9]{1}[0-9]{10}" >
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-4 col-md-offset-3">
+          <input class="btn btn-primary" type="submit" value= "Agregar" ng-disabled="proveedorForm.$invalid"/>
+        </div>
+      </div>
+  </form>
+  </div>
+  
