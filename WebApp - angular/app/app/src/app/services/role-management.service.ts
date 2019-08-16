@@ -15,7 +15,6 @@ export class RoleManagementService {
   constructor(private http : HttpClient) { }
 
   submitRole(formData: Role){
-    alert("submiting");
     return this.http.post(this.rootURL + '/Role', formData);
   }
 

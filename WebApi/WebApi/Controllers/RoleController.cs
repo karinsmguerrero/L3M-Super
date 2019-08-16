@@ -11,11 +11,12 @@ namespace WebApi.Controllers
 {
     public class RoleController : ApiController
     {
+        private string xmlPath = "C:/Users/karin/Dropbox/TEC/2019/II semestre/Bases de datos/Tarea 1/WebApi/WebApi/Data/Administration.xml";
         // GET: api/Role
         public IEnumerable<Role> Get()
         {
             XmlDocument xml = new XmlDocument();
-            xml.Load("C:/Users/karin/Dropbox/TEC/2019/II semestre/Bases de datos/Tarea 1/WebApi/WebApi/Data/Administration.xml");
+            xml.Load(xmlPath);
             var list = new List<Role>();
 
             XmlNodeList roles = xml.DocumentElement.SelectNodes("/root/roles/role");
@@ -41,32 +42,33 @@ namespace WebApi.Controllers
         }
 
         // POST: api/Role
-        public void Post([FromBody]string value)
+        public void Post([FromBody]Role value)
         {
+            XmlDocument xml = new XmlDocument();
+            xml.Load(xmlPath);
+
+            XmlNode roles = xml.DocumentElement.SelectSingleNode("/root/roles");
+
+            XmlNode newRole = xml.CreateElement("role");
+
+            // Create attributes for role and append them to the role element.
+            XmlAttribute attribute = xml.CreateAttribute("name");
+            attribute.Value = value.Name;
+            newRole.Attributes.Append(attribute);
+
+            // Create and append a child element for the description of the role.
+            XmlNode description = xml.CreateElement("description");
+            description.InnerText = value.Description;
+            newRole.AppendChild(description);
+
+            roles.AppendChild(newRole);
+            xml.Save(xmlPath);
         }
 
         // PUT: api/Role/5
         public void Put([FromBody]Role value)
         {
-            XmlDocument xml = new XmlDocument();
-            xml.Load("C:/Users/karin/Dropbox/TEC/2019/II semestre/Bases de datos/Tarea 1/WebApi/WebApi/Data/Administration.xml");
-
-            XmlNode roles = xml.DocumentElement.SelectSingleNode("/root/roles");
-
-            // Create a new role element.
-            XmlElement role = xml.CreateElement("role");
-
-            // Create attributes for role and append them to the role element.
-            XmlAttribute attribute = xml.CreateAttribute("name");
-            attribute.Value = value.Name;
-            role.Attributes.Append(attribute);
-
-            // Create and append a child element for the description of the role.
-            XmlElement description = xml.CreateElement("description");
-            description.InnerText = value.Description;
-            role.AppendChild(description);
-
-            roles.AppendChild(role);
+           
 
         }
 
