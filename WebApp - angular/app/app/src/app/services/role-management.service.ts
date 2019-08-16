@@ -10,10 +10,12 @@ export class RoleManagementService {
 
   readonly rootURL = "http://localhost:59791/api";
   roleList : Role[];
+  formData: Role;
 
   constructor(private http : HttpClient) { }
 
   submitRole(formData: Role){
+    alert("submiting");
     return this.http.post(this.rootURL + '/Role', formData);
   }
 

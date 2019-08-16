@@ -15,19 +15,28 @@ namespace WebApi.Controllers
         public IEnumerable<Employee> Get()
         {
             XmlDocument xml = new XmlDocument();
-            xml.Load("~/Data/Administration.xml");
-            XmlNode root = xml.FirstChild;
-            string xPathString = "/employees";
-            XmlElement Employees = (XmlElement)xml.DocumentElement.SelectSingleNode(xPathString);
-            
+            xml.Load("C:/Users/karin/Dropbox/TEC/2019/II semestre/Bases de datos/Tarea 1/WebApi/WebApi/Data/Administration.xml");
+
             var list = new List<Employee>();
+            XmlNodeList employees = xml.DocumentElement.SelectNodes("/root/employees/employee");
 
-            foreach (XmlElement node in Employees.ChildNodes)
+            foreach (XmlNode employee in employees)
             {
-                string id = node.GetAttributeNode("id").InnerXml;
-                string name = node["name"].InnerText;
-
-                list.Add(new Employee() { Name = name });
+                string id = employee.Attributes["id"].Value;
+                string name = employee.InnerText;
+                string birth = employee.InnerText;
+                string hiring = employee.InnerText;
+                string branch = employee.InnerText;
+                string salary = employee.InnerText;
+                list.Add(new Employee()
+                {
+                    Name = name,
+                    Id = id,
+                    Birth = birth,
+                    Hiring = hiring,
+                    Branch = branch,
+                    Salary = salary
+                });
             }
 
             return list;

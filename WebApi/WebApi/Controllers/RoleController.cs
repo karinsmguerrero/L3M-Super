@@ -31,7 +31,6 @@ namespace WebApi.Controllers
                 });
             }
 
-
             return list;
         }
 
@@ -47,9 +46,30 @@ namespace WebApi.Controllers
         }
 
         // PUT: api/Role/5
-        public void Put(int id, [FromBody]string value)
+        public void Put([FromBody]Role value)
         {
+            XmlDocument xml = new XmlDocument();
+            xml.Load("C:/Users/karin/Dropbox/TEC/2019/II semestre/Bases de datos/Tarea 1/WebApi/WebApi/Data/Administration.xml");
+
+            XmlNode roles = xml.DocumentElement.SelectSingleNode("/root/roles");
+
+            // Create a new role element.
+            XmlElement role = xml.CreateElement("role");
+
+            // Create attributes for role and append them to the role element.
+            XmlAttribute attribute = xml.CreateAttribute("name");
+            attribute.Value = value.Name;
+            role.Attributes.Append(attribute);
+
+            // Create and append a child element for the description of the role.
+            XmlElement description = xml.CreateElement("description");
+            description.InnerText = value.Description;
+            role.AppendChild(description);
+
+            roles.AppendChild(role);
+
         }
+
 
         // DELETE: api/Role/5
         public void Delete(int id)
