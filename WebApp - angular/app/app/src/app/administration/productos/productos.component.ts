@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductsManagmentService } from 'src/app/services/products-managment.service';
+import { Product } from '../../models/product.model';
 
 @Component({
   selector: 'app-productos',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductosComponent implements OnInit {
 
-  constructor() { }
+  constructor( private service : ProductsManagmentService) { }
 
   ngOnInit() {
+    //this.service.getProducts();
+  }
+
+  populateForm(product : Product){
+
   }
 
 }

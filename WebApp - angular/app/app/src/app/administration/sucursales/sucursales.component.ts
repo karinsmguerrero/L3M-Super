@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { OfficceManagmentService } from 'src/app/services/officce-managment.service';
+import { Officce } from 'src/app/models/officce.model';
 
 @Component({
   selector: 'app-sucursales',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SucursalesComponent implements OnInit {
 
-  constructor() { }
+  constructor( private service : OfficceManagmentService) { }
 
   ngOnInit() {
+    this.service.getOfficce();
+  }
+
+  populateForm(officce : Officce){
+
   }
 
 }

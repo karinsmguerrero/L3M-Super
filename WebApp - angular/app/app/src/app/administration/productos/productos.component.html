@@ -29,22 +29,24 @@
           <th> Descuento </th>
           <th></th>
         </tr>
-        <tr ng-repeat = "producto in productos | orderBy: orden | filter: busqueda" ng-show:"true" class = "active">
-          <td >{{producto.nombre}}</td>
-          <td>{{producto.descripcion}}</td>
-          <td >{{producto.codigoBarras}}</td>
-          <td>{{producto.proveedor}}</td>
-          <td >{{producto.precioCompra}}</td>
-          <td>{{producto.impuesto}}</td>
-          <td>{{producto.descuento}}</td>
-          <td><div class = "remove" ng-click = "eliminarProducto(producto)">x</div></td>
+        
+
+        <tr *ngFor="let Product of service.productList" class="active">
+          <td (click)="populateForm(Product)"> {{Product.Name}}</td>
+          <td>{{Product.Description}}</td>
+          <td>{{Product.Code}}</td>
+          <td>{{Product.Provider}}</td>
+          <td>{{Product.Price}}</td>
+          <td>{{Product.Tax}}</td>
+          <td>{{Product.Discount}}</td>
+          <td><button class="btn btn-sm btn-outline-danger">X</button></td>
         </tr>
       </table>
     </div>
     <br><br><br>
   
     <div class = "container">
-      <h3 style => Agregar producto <span class = "label label-warning">Nuevo</span></h3>
+      <h3> Agregar producto <span class = "label label-warning">Nuevo</span></h3>
       <br><br>
       <form name = "productoForm" ng-submit = "addProducto()" novalidate class = "form-horizontal">
         <div class = "form-group">

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ScheduleManagmentService } from 'src/app/services/schedule-managment.service';
+import { Schedule } from '../../models/schedule.model';
 
 @Component({
   selector: 'app-horario',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HorarioComponent implements OnInit {
 
-  constructor() { }
+  constructor( private service : ScheduleManagmentService) { }
 
   ngOnInit() {
+    this.service.getSchedule();
+  }
+
+  populateForm(schedule : Schedule){
+
   }
 
 }

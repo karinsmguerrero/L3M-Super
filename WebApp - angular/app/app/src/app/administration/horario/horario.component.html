@@ -2,18 +2,6 @@
     <h1 style="color:#263238">Horario</h1>
   </div>
   
-  <div class="container">
-    <br>
-    <form class="form-horizontal" action="">
-      <div class="form-group">
-        <label for="busqueda" class="control-label col-md-1">Búsqueda:</label>
-        <div class="col-md-5">
-          <input class="form-control" type="search" ng-model="busqueda" placeholder="Buscar..."/>
-        </div>
-        <div class="col-md-6"></div>
-      </div>
-    </form>
-  </div>
   <br><br>
   
     <div class="table-responsive">
@@ -26,19 +14,21 @@
           <th>Extras</th>
           <th></th>
         </tr>
-        <tr  ng-repeat="horario in horario | orderBy: orden | filter: busqueda" >
-          <td>{{horario.nombre}}</td>
-          <td>{{horario.semana}}</td>
-          <td>{{horario.horas}}</td>
-          <td>{{horario.sucursal}}</td>
-          <td>{{horario.horas-42}}</td>
-          <td><div class="remove" ng-click="eliminarHorario(horario)">x</div></td>
+       
+        <tr *ngFor="let Schedule of service.scheduleList" class="active">
+          <td (click)="populateForm(Schedule)"> {{Schedule.Name}}</td>
+          <td>{{Schedule.Name}}</td>
+          <td>{{Schedule.Week}}</td>
+          <td>{{Schedule.Hours}}</td>
+          <td>{{Schedule.Officce}}</td>
+          <td>{{Schedule.Hours-42}}</td>
+          <td><button class="btn btn-sm btn-outline-danger">X</button></td>
         </tr>
       </table>
     </div>
     <br><br><br>
   <div class="container">
-    <h3 style="">Agregar Horario <span class="label label-warning">Agregar</span></h3>
+    <h3 >Agregar Horario <span class="label label-warning">Agregar</span></h3>
     <br><br>
     <form name="horarioForm" ng-submit="addHorario()" novalidate class="form-horizontal">
       <div class="form-group">

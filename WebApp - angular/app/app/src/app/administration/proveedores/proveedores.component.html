@@ -2,19 +2,6 @@
     <h1 style="color:#263238">Gestión de Proveedores</h1>
   </div>
   
-  <div class="container">
-    <br>
-    <form class="form-horizontal" action="">
-      <div class="form-group">
-  
-        <label for="busqueda" class="control-label col-md-1">Búsqueda:</label>
-        <div class="col-md-5">
-          <input class="form-control" type="search" ng-model="busqueda" placeholder="Buscar..."/>
-        </div>
-        <div class="col-md-6"></div>
-      </div>
-    </form>
-  </div>
   <br><br>
   
     <div class="table-responsive">
@@ -24,16 +11,16 @@
           <th>Cédula</th>
           <th></th>
         </tr>
-        <tr ng-repeat="proveedor in proveedores | orderBy: orden | filter: busqueda" ng-show:"true" class="active">
-          <td >{{proveedor.nombre}}</td>
-          <td>{{proveedor.cedula}}</td>
-          <td><div class="remove" ng-click="eliminarProveedor(proveedor)">x</div></td>
+        <tr *ngFor="let Provider of service.providerList" class="active">
+          <td (click)="populateForm(Provider)"> {{Provider.Name}}</td>
+          <td>{{Provider.Id}}</td>
+          <td><button class="btn btn-sm btn-outline-danger">X</button></td>
         </tr>
       </table>
     </div>
     <br><br><br>
   <div class="container">
-    <h3 style="">     Agregar proveedor <span class="label label-warning">Nuevo</span></h3>
+    <h3>     Agregar proveedor <span class="label label-warning">Nuevo</span></h3>
     <br><br>
     <form name="proveedorForm" ng-submit="addProveedor()" novalidate class="form-horizontal">
       <div class="form-group">

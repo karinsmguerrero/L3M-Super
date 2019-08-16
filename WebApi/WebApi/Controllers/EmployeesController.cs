@@ -26,11 +26,11 @@ namespace WebApi.Controllers
             foreach (XmlNode employee in employees)
             {
                 string id = employee.Attributes["id"].Value;
-                string name = employee.InnerText;
-                string birth = employee.InnerText;
-                string hiring = employee.InnerText;
-                string branch = employee.InnerText;
-                string salary = employee.InnerText;
+                string name = employee["name"].InnerText;
+                string birth = employee["birth-date"].InnerText;
+                string hiring = employee["hire-date"].InnerText;
+                string branch = employee["branch"].InnerText;
+                string salary = employee["salary"].InnerText;
                 list.Add(new Employee()
                 {
                     Name = name,
@@ -60,11 +60,11 @@ namespace WebApi.Controllers
                 if(int.Parse(employee.Attributes["id"].Value) == employee_id)
                 {
                     result.Id = employee.Attributes["id"].Value;
-                    result.Name = employee.InnerText;
-                    result.Birth = employee.InnerText;
-                    result.Hiring = employee.InnerText;
-                    result.Branch  = employee.InnerText;
-                    result.Salary = employee.InnerText;
+                    result.Name = employee["name"].InnerText;
+                    result.Birth = employee["birth-date"].InnerText;
+                    result.Hiring = employee["hire-date"].InnerText;
+                    result.Branch  = employee["branch"].InnerText;
+                    result.Salary = employee["salary"].InnerText;
                     break;
                 }
                 
