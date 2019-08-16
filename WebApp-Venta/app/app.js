@@ -8,6 +8,10 @@ superApp.config(['$routeProvider',function($routeProvider){
     templateUrl: 'views/home.html',
     controller:'SuperController'
   })
+  .when('/menu',{
+    templateUrl: 'views/menu.html',
+    controller:'SucursalesController'
+  })
   .when ('/horario', {
     templateUrl: 'views/horario.html',
     controller:'HorarioController'
