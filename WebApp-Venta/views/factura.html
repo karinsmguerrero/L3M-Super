@@ -1,0 +1,36 @@
+<script>
+  var a =0;
+</script>
+<div class="content">
+  <div>
+    <h3 style="color:#37474f; padding=10px">Búsqueda: <input type="text" ng-model="busqueda" placeholder="Buscar..."/></h3>
+    <br>
+  </div>
+  <br>
+  <table id="table-style">
+  <tr>
+    <th>Nombre</th>
+    <th>Costo</th>
+    <th>Cantidad</th>
+    <th>Total</th>
+    <th></th>
+  </tr>
+    <tr  ng-repeat="proc in productosB | orderBy: orden | filter: busqueda" >
+      <td><h3>{{proc.nombre}}</h3></td>
+      <td>{{proc.costo}}</td>
+      <td>{{proc.cantidad}}</td>
+      <td>{{proc.cantidad*proc.costo}}</td>
+      <td><div class="remove" ng-click="eliminarProductoB(proc)">x</div></td>
+    </tr>
+  </table>
+
+  <br><br><br>
+  <h2 style="color:#eceff1; text-align:center; background-color:#1565c0; padding:20px"">Agregar Producto</h2>
+  <br><br>
+  <form name="productosBForm" ng-submit="addProductoB()" novalidate>
+    <input type="text" placeholder="Nombre" ng-model="nproc.nombre" ng-required="true">
+    <input type="text" placeholder="Costo" ng-model="nproc.costo" ng-required="true">
+    <input type="text" placeholder="Cantidad" ng-model="nproc.cantidad" ng-required="true">
+    <input type="submit" value= "Nueva Producto" ng-disabled="productosBForm.$invalid"/>
+  </form>
+</div>

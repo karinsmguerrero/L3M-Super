@@ -8,13 +8,21 @@ superApp.config(['$routeProvider',function($routeProvider){
     templateUrl: 'views/home.html',
     controller:'SuperController'
   })
-  .when('/menu',{
+  .when ('/menu', {
     templateUrl: 'views/menu.html',
-    controller:'SucursalesController'
+    controller:'ProductosController'
   })
-  .when ('/horario', {
-    templateUrl: 'views/horario.html',
-    controller:'HorarioController'
+  .when('/baseA', {
+    templateUrl: 'views/cajeros.html',
+    controller:'baseAController'
+  })
+  .when('/baseB', {
+    templateUrl: 'views/cajeros.html',
+    controller:'baseBController'
+  })
+  .when('/baseC', {
+    templateUrl: 'views/cajeros.html',
+    controller:'baseCController'
   })
   .when('/login-success', {
     templateUrl: 'views/login-success.html',
@@ -32,9 +40,9 @@ superApp.config(['$routeProvider',function($routeProvider){
     templateUrl: 'views/roles.html',
     controller:'SuperController'
   })
-  .when('/sucursales',{
-    templateUrl: 'views/sucursales.html',
-    controller:'SucursalesController'
+  .when('/C',{
+    templateUrl: 'views/factura.html',
+    controller:'baseBController'
   })
   .otherwise({
     redirectTo:'/home'
@@ -91,31 +99,100 @@ superApp.controller('SuperController', ['$scope', '$http', function ($scope, $ht
 
 
 }]);
-superApp.controller('HorarioController', ['$scope', '$http', function ($scope, $http) {
+superApp.controller('ProductosController', ['$scope', '$http', function ($scope, $http) {
 
-  $scope.eliminarHorario= function (rol) {
-    var poshor = $scope.horario.indexOf(rol);
-    $scope.horario.splice(poshor, 1);
+
+  $scope.eliminarProducto= function (rol) {
+    var posproc = $scope.productos.indexOf(rol);
+    $scope.productos.splice(posproc, 1);
   };
 
-  $scope.addHorario = function () {
-    $scope.horario.push({
-      nombre: $scope.nhor.nombre,
-      semana: $scope.nhor.semana,
-      horas: $scope.nhor.horas,
-      sucursal: $scope.nhor.sucursal,
+  $scope.addProducto = function () {
+    $scope.productos.push({
+      nombre: $scope.nproc.nombre,
+      costo: $scope.nproc.costo,
+      cantidad: $scope.nproc.cantidad,
     });
-    $scope.nhor.nombre="";
-    $scope.nhor.semana="";
-    $scope.nhor.horas="";
-    $scope.nhor.sucursal="";
+    $scope.nproc.nombre="";
+    $scope.nproc.costo="";
+    $scope.nproc.cantidad="";
   };
 
-  $http.get('data/horario.json').then(function(data){
-    $scope.horario=data.data;
+  $http.get('data/productos.json').then(function(data){
+    $scope.productos=data.data;
   });
 }]);
+superApp.controller('baseAController', ['$scope', '$http', function ($scope, $http) {
 
+  $scope.eliminarProductoA= function (rol) {
+    var posproc = $scope.productosA.indexOf(rol);
+    $scope.productosA.splice(posproc, 1);
+  };
+  $scope.addProductoA = function () {
+    $scope.productosA.push({
+      nombre: $scope.nproc.nombre,
+      costo: $scope.nproc.costo,
+      descripcion:$scope.nproc.des,
+      cantidad: $scope.nproc.cantidad,
+    });
+    $scope.nproc.nombre="";
+    $scope.nproc.costo="";
+    $scope.nproc.des="",
+    $scope.nproc.cantidad="";
+  };
+
+  $http.get('data/productosA.json').then(function(data){
+    $scope.productosA=data.data;
+  });
+}]);
+superApp.controller('baseBController', ['$scope', '$http', function ($scope, $http) {
+
+  $scope.eliminarProductoB= function (rol) {
+    var posproc = $scope.productosB.indexOf(rol);
+    $scope.productosB.splice(posproc, 1);
+  };
+
+  $scope.addProductoB = function () {
+    $scope.productosB.push({
+      nombre: $scope.nproc.nombre,
+      costo: $scope.nproc.costo,
+      descripcion:$scope.nproc.des,
+      cantidad: $scope.nproc.cantidad,
+    });
+    $scope.nproc.nombre="";
+    $scope.nproc.costo="";
+    $scope.nproc.des="",
+    $scope.nproc.cantidad="";
+  };
+
+  $http.get('data/productosB.json').then(function(data){
+    $scope.productosB=data.data;
+  });
+}]);
+superApp.controller('baseCController', ['$scope', '$http', function ($scope, $http) {
+
+  $scope.eliminarProductoC= function (rol) {
+    var posproc = $scope.productosC.indexOf(rol);
+    $scope.productosC.splice(posproc, 1);
+  };
+
+  $scope.addProductoC = function () {
+    $scope.productosC.push({
+      nombre: $scope.nproc.nombre,
+      costo: $scope.nproc.costo,
+      descripcion:$scope.nproc.des,
+      cantidad: $scope.nproc.cantidad,
+    });
+    $scope.nproc.nombre="";
+    $scope.nproc.costo="";
+    $scope.nproc.des="",
+    $scope.nproc.cantidad="";
+  };
+
+  $http.get('data/productosC.json').then(function(data){
+    $scope.productosC=data.data;
+  });
+}]);
 superApp.controller('SucursalesController', ['$scope', '$http', function ($scope, $http) {
 
   $scope.eliminarSucursal= function (rol) {
