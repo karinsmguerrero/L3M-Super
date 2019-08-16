@@ -25,7 +25,7 @@
     <tr *ngFor="let Role of service.roleList" class="active">
       <td (click)="populateForm(Role)"> {{Role.Name}}</td>
       <td> {{Role.Description}}</td>
-      <td><button class="btn btn-sm btn-outline-danger">X</button></td>
+      <td><button class="btn btn-sm btn-outline-danger" (click)="onDelete(Role.Name)">X</button></td>
     </tr>
   </table>
 </div>

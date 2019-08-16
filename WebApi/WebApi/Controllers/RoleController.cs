@@ -74,8 +74,23 @@ namespace WebApi.Controllers
 
 
         // DELETE: api/Role/5
-        public void Delete(int id)
+        public void Delete(string name)
         {
+            XmlDocument xml = new XmlDocument();
+            xml.Load(xmlPath);
+
+            XmlNodeList roles = xml.DocumentElement.SelectNodes("/root/roles/role");
+
+            foreach(XmlNode role in roles)
+            {
+                if (role.Attributes["name"].Value == name)
+                {
+                    xml.DocumentElement.SelectSingleNode("/root/roles").RemoveChild(role);
+                    break;
+                }
+
+            }
+            xml.Save(xmlPath);
         }
     }
 }

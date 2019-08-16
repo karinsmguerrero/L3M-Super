@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {  HttpClient } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Role } from '../models/role.model';
 
 
@@ -9,18 +9,20 @@ import { Role } from '../models/role.model';
 export class RoleManagementService {
 
   readonly rootURL = "http://localhost:59791/api";
-  roleList : Role[];
+  roleList: Role[];
   formData: Role;
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  submitRole(formData: Role){
+  submitRole(formData: Role) {
     return this.http.post(this.rootURL + '/Role', formData);
   }
 
-  getRoles(){
+  getRoles() {
     this.http.get(this.rootURL + '/Role').toPromise().then(res => this.roleList = res as Role[]);
   }
 
-  
+  deleteRole(Name: string) {
+    return this.http.delete(this.rootURL + '/Role/' + Name);
+  }
 }

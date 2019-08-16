@@ -37,5 +37,10 @@ export class RolesComponent implements OnInit {
       });
     }
 
+    onDelete(Name : string){
+      this.service.deleteRole(Name).subscribe(res => {
+        this.service.getRoles();
+      });
+    }
     
 }
