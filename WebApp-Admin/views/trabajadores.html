@@ -1,91 +1,97 @@
-<div class = "container">
-  <h1 style = "color:#263238"> Gestión de Trabajadores </h1>
+<div class="container">
+  <h1 style="color:#263238"> Gestión de Trabajadores </h1>
 </div>
 
 <div class="container">
   <br>
-  <form class = "form-horizontal" action = "">
-    <div class = "form-group">
-      <label for = "busqueda" class = "control-label col-md-1"> Búsqueda: </label>
+  <form class="form-horizontal" action="">
+    <div class="form-group">
+      <label for="busqueda" class="control-label col-md-1"> Búsqueda: </label>
       <div class="col-md-5">
-        <input class = "form-control" type = "search" ng-model = "busqueda" placeholder = "Buscar..."/>
+        <input class="form-control" type="search" ng-model="busqueda" placeholder="Buscar..." />
       </div>
-      <div class = "col-md-6"> </div>
+      <div class="col-md-6"> </div>
     </div>
   </form>
 </div>
 
 <br><br>
 
-  <div class = "table-responsive">
-    <table class = "table"> <!--id="table-style" --->
-      <tr>
-        <th> Trabajador </th>
-        <th> Cédula </th>
-        <th> Fecha Nacimiento </th>
-        <th> Fecha Inicio de Trabajo </th>
-        <th> Sucursal </th>
-        <th> Salario por hora </th>
-        <th></th>
-      </tr>
-      <tr ng-repeat = "trabajador in trabajadores | orderBy: orden | filter: busqueda" ng-show:"true" class = "active">
-        <td >{{trabajador.nombre}}</td>
-        <td>{{trabajador.cedula}}</td>
-        <td >{{trabajador.fechaNacimiento}}</td>
-        <td>{{trabajador.fechaIniTrabajo}}</td>
-        <td >{{trabajador.sucursal}}</td>
-        <td>{{trabajador.salarioPH}}</td>
-        <td><div class = "remove" ng-click = "eliminarTrabajador(trabajador)">x</div></td>
-      </tr>
-    </table>
-  </div>
-  <br><br><br>
+<div class="table-responsive">
+  <table class="table">
+    <!--id="table-style" --->
+    <tr>
+      <th> Trabajador </th>
+      <th> Cédula </th>
+      <th> Fecha Nacimiento </th>
+      <th> Fecha Inicio de Trabajo </th>
+      <th> Sucursal </th>
+      <th> Salario por hora </th>
+      <th></th>
+    </tr>
+    <tr ng-repeat="trabajador in trabajadores | orderBy: orden | filter: busqueda" ng-show:"true" class="active">
+      <td>{{trabajador.nombre}}</td>
+      <td>{{trabajador.cedula}}</td>
+      <td>{{trabajador.fechaNacimiento}}</td>
+      <td>{{trabajador.fechaIniTrabajo}}</td>
+      <td>{{trabajador.sucursal}}</td>
+      <td>{{trabajador.salarioPH}}</td>
+      <td>
+        <div class="remove" ng-click="eliminarTrabajador(trabajador)">x</div>
+      </td>
+    </tr>
+  </table>
+</div>
+<br><br><br>
 
-  <div class = "container">
-    <h3 style = " "> Agregar trabajador <span class = "label label-warning">Nuevo</span></h3>
-    <br><br>
-    <form name = "trabajadorForm" ng-submit = "addTrabajador()" novalidate class = "form-horizontal">
-      <div class = "form-group">
-        <label for = "nombre" class = "control-label col-md-2">Nombre:</label>
-        <div class = "col-md-4">
-          <input  class = "form-control" type = "text" placeholder = "Nombre" ng-model = "ntrab.nombre" ng-required = "true">
-        </div>
+<div class="container">
+  <h3 style=""> Agregar trabajador <span class="label label-warning">Nuevo</span></h3>
+  <br><br>
+  <form name="trabajadorForm" ng-submit="addTrabajador()" novalidate class="form-horizontal">
+    <div class="form-group">
+      <label for="nombre" class="control-label col-md-2">Nombre:</label>
+      <div class="col-md-4">
+        <input class="form-control" type="text" placeholder="Nombre" ng-model="ntrab.nombre" ng-required="true">
       </div>
-      <div class = "form-group">
-        <label for = "cedula" class = "control-label col-md-2">Cédula:</label>
-        <div class="col-md-4">
-          <input  class = "form-control" type = "number" placeholder = "Cédula" ng-model = "ntrab.cedula" ng-required = "true"
-          pattern = "[1-9]{1}[0-9]{10}" >
-        </div>
+    </div>
+    <div class="form-group">
+      <label for="cedula" class="control-label col-md-2">Cédula:</label>
+      <div class="col-md-4">
+        <input class="form-control" type="number" placeholder="Cédula" ng-model="ntrab.cedula" ng-required="true"
+          pattern="[1-9]{1}[0-9]{10}">
       </div>
-      <div class = "form-group">
-        <label for = "fechaNacimiento" class = "control-label col-md-2">Fecha de Nacimiento:</label>
-        <div class = "col-md-4">
-          <input  class = "form-control" type = "date" placeholder = "Fecha de Nacimiento" ng-model = "ntrab.fechaNacimiento" ng-required = "true" min = "1950-01-01">
-        </div>
+    </div>
+    <div class="form-group">
+      <label for="fechaNacimiento" class="control-label col-md-2">Fecha de Nacimiento:</label>
+      <div class="col-md-4">
+        <input class="form-control" type="date" placeholder="Fecha de Nacimiento" ng-model="ntrab.fechaNacimiento"
+          ng-required="true" min="1950-01-01">
       </div>
-      <div class="form-group">
-        <label for = "fechaIniTrabajo" class="control-label col-md-2">Fecha Inicio de Trabajo:</label>
-        <div class = "col-md-4">
-          <input  class = "form-control" type = "date" placeholder = "Fecha Inicio de Trabajo" ng-model = "ntrab.fechaIniTrabajo" ng-required = "true" min = "2019/01/01">
-        </div>
+    </div>
+    <div class="form-group">
+      <label for="fechaIniTrabajo" class="control-label col-md-2">Fecha Inicio de Trabajo:</label>
+      <div class="col-md-4">
+        <input class="form-control" type="date" placeholder="Fecha Inicio de Trabajo" ng-model="ntrab.fechaIniTrabajo"
+          ng-required="true" min="2019/01/01">
       </div>
-      <div class = "form-group">
-        <label for = "sucursal" class = "control-label col-md-2">Sucursal:</label>
-        <div class="col-md-4">
-          <input  class = "form-control" type = "text" placeholder = "Sucursal" ng-model = "ntrab.sucursal" ng-required = "true">
-        </div>
+    </div>
+    <div class="form-group">
+      <label for="sucursal" class="control-label col-md-2">Sucursal:</label>
+      <div class="col-md-4">
+        <input class="form-control" type="text" placeholder="Sucursal" ng-model="ntrab.sucursal" ng-required="true">
       </div>
-      <div class = "form-group">
-        <label for = "salarioPH" class = "control-label col-md-2">Salario por hora:</label>
-        <div class = "col-md-4">
-          <input  class = "form-control" type = "number" placeholder = "Salario por hora" ng-model = "ntrab.salarioPH" ng-required = "true" min = "1000">
-        </div>
+    </div>
+    <div class="form-group">
+      <label for="salarioPH" class="control-label col-md-2">Salario por hora:</label>
+      <div class="col-md-4">
+        <input class="form-control" type="number" placeholder="Salario por hora" ng-model="ntrab.salarioPH"
+          ng-required="true" min="1000">
       </div>
-      <div class = "form-group">
-        <div class = "col-md-4 col-md-offset-3">
-          <input class = "btn btn-primary" type = "submit" value = "Agregar" ng-disabled = "trabajadorForm.$invalid"/>
-        </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-4 col-md-offset-3">
+        <input class="btn btn-primary" type="submit" value="Agregar" ng-disabled="trabajadorForm.$invalid" />
       </div>
+    </div>
   </form>
-  </div>
+</div>
