@@ -1,0 +1,11 @@
+[
+    {
+        "nombre": "Gelatina",
+        "descripcion": "La gelatina es un coloide gel (es decir, una mezcla semisólida a temperatura ambiente), incolora, translúcida, quebradiza e insípida, que se obtiene a partir del colágeno procedente del tejido conectivo de animales, hervido en agua.",
+        "codigoBarras": "123789",
+        "proveedor": "Spar",
+        "precioCompra": "200",
+        "impuesto": "0.2",
+        "descuento": "0.0"
+    }
+]

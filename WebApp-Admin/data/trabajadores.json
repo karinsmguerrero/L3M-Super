@@ -1,24 +1,26 @@
-[{
-	"nombre": "Andrey",
-	"cedula": "44582151814",
-	"nacimiento": "25/04/1992",
-	"iniTrabajo": "01/01/2012",
-	"sucursal": "Heredia",
-	"salarioPH": "1700"
-},
-{
-	"nombre": "Alberto",
-	"cedula": "14458215114",
-	"nacimiento": "11/02/1996",
-	"iniTrabajo": "01/01/2016",
-	"sucursal": "Alajuela",
-	"salarioPH": "1500"
-},
-{
-	"nombre": "Alejandra",
-	"cedula": "14458211814",
-	"nacimiento": "16/12/1998",
-	"iniTrabajo": "01/01/2018",
-	"sucursal": "Guanacaste",
-	"salarioPH": "1600"
-}]
+[
+	{
+		"nombre": "Steven",
+		"cedula": "44582151814",
+		"fechaNacimiento": "25/04/1982",
+		"fechaIniTrabajo": "01/01/2012",
+		"sucursal": "Heredia",
+		"salarioPH": "1700"
+	},
+	{
+		"nombre": "Alberto",
+		"cedula": "14458215114",
+		"fechaNacimiento": "11/02/1986",
+		"fechaIniTrabajo": "01/01/2016",
+		"sucursal": "Alajuela",
+		"salarioPH": "1500"
+	},
+	{
+		"nombre": "Maria",
+		"cedula": "14458211814",
+		"fechaNacimiento": "16/12/1988",
+		"fechaIniTrabajo": "01/01/2018",
+		"sucursal": "Guanacaste",
+		"salarioPH": "1600"
+	}
+]
