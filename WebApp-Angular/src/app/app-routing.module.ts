@@ -18,6 +18,11 @@ import { MenuSelectionComponent } from './reports/menu-selection/menu-selection.
 import { ProductListComponent } from './reports/product-list/product-list.component';
 import { ProductAllListComponent } from './reports/product-all-list/product-all-list.component';
 import { ExpensesComponent } from './reports/expenses/expenses.component';
+//Modulos Ventas
+import { VentasComponent } from './ventas/ventas.component';
+import { FacturaComponent } from './ventas/factura/factura.component';
+
+
 const routes: Routes = [
   //{ path: '', redirectTo: '/roles', pathMatch: 'full' },
   //Rutas Admin
@@ -47,7 +52,7 @@ const routes: Routes = [
   { path: 'Reportes/Gastos/SanJose', component: ExpensesComponent },
   { path: 'Reportes/Gastos/Todas', component: ExpensesComponent },
   //Rutas ventas
-
+  { path: 'Ventas/Factura', component: FacturaComponent },
 
 ];
 

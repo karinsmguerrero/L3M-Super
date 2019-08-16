@@ -1,5 +1,7 @@
 export class Bill {
-    Date:string;
+    Product:string;
+    Price:number;
+    Quantity:number;
     
 }
 

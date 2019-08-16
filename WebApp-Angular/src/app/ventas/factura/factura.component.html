@@ -1,1 +1,95 @@
-<p>factura works!</p>
+<div class = "container">
+    <h1 style = "color:#263238"> Facturación </h1>
+  <br><br>
+  <form name="infoForm" ng-submit="addSuc()" novalidate class="form-inline">
+    <div class="form-group">
+      <label for="cajero" class="control-label col-md-2 sr-only">Cajero:</label>
+      <div class="dropdown col-md-5">
+          <button class="btn btn-primary dropdown-toggle form-group" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Cajero
+                <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a routerLink="Ventas/Factura">Juan Pérez</a></li>
+            <li><a routerLink="/Ventas/Factura">Pamela Sandoval</a></li>
+            <li><a routerLink="/Ventas/Factura">Carlos Alvarado</a></li>
+          </ul>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="cajero" class="control-label col-md-2 sr-only">Sucursal:</label>
+      <div class="dropdown col-md-5">
+          <button class="btn btn-primary dropdown-toggle form-group" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Sucursal
+                <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <li><a routerLink="Ventas/Factura">Cartago</a></li>
+            <li><a routerLink="/Ventas/Factura">Heredia</a></li>
+            <li><a routerLink="/Ventas/Factura">San José</a></li>
+          </ul>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-5">
+        <input class="btn btn-success" type="submit"
+        value= "Agregar" ng-disabled="infoForm.$invalid">
+      </div>
+    </div>
+    </form>
+  <br><br>
+  
+    <div class = "table-responsive">
+      <table class = "table">
+        <tr>
+          <th> Producto </th>
+          <th> Costo </th>
+          <th> Cantidad </th>
+          <th> Total </th>
+          <th></th>
+        </tr>
+        <tr *ngFor="let Bill of service.billList" class="active">
+            <td (click)="populateForm(Product)"> {{Bill.Product}}</td>
+            <td>{{Bill.Price}}</td>
+            <td >{{Bill.Quantity}}</td>
+            <td>{{Bill.Quantity*Bill.Price}}</td>
+            <td><button class="btn btn-sm btn-outline-danger">X</button></td>
+          </tr>
+        
+      </table>
+    </div>
+    <br><br><br>
+  
+    <div class = "container">
+      <h3 style > Agregar producto <span class = "label label-warning">Nuevo</span></h3>
+      <br><br>
+      <form name = "productoForm" ng-submit = "addProducto()" novalidate class = "form-horizontal">
+        <div class = "form-group">
+          <label for = "producto" class = "control-label col-md-2">Producto:</label>
+          <div class = "col-md-4">
+            <input  class = "form-control" type = "text" placeholder = "Nombre" ng-model = "nbill.producto" ng-required = "true">
+          </div>
+        </div>
+        <div class = "form-group">
+          <label for = "precio" class = "control-label col-md-2">Precio:</label>
+          <div class="col-md-4">
+            <input  class = "form-control" type = "number" placeholder = "Precio" ng-model = "nbill.precio" ng-required = "true" >
+          </div>
+        </div>
+        <div class = "form-group">
+          <label for = "cantidad" class = "control-label col-md-2">Cantidad:</label>
+          <div class = "col-md-4">
+            <input  class = "form-control" type = "number" placeholder = "Cantidad de productos" ng-model = "nbill.cantidad" ng-required = "true" >
+          </div>
+        </div>
+        <div class = "form-group">
+          <label for = "descuento" class = "control-label col-md-2">Descuento:</label>
+          <div class = "col-md-4">
+            <input  class = "form-control" type = "number" placeholder = "Descuento" ng-model = "nprod.descuento" ng-required = "true" >
+          </div>
+        </div>
+        
+    </form>
+</div>
+
+  
