@@ -1,4 +1,6 @@
-<div class="hidden-xs navbar navbar-default navbar-fixed-top" id="nav-bar">
+<!--NavBar de la app de Administracion-->
+<div class="visible">
+  <div class="hidden-xs hidden-sm navbar navbar-default navbar-fixed-top" id="nav-bar">
     <ul>
      <li><a routerLink="/Administracion">Inicio</a></li>
      <li><a routerLink="/Administracion/Role">Roles</a></li>
@@ -13,8 +15,41 @@
      <li style="float:right"><a class="active" routerLink="/Login">Login</a></li>
     </ul>
   </div>
+  <!--Navbar Responsive de la App Administracion-->
+  <div class="visible-xs visible-sm hidden-md hidden-lg" id="nav-mobile">
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-mobile">
+              <span class="sr-only">Menú</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a routerlink="/Administracion/Home" class="navbar-brand">L3M Super</a>
+          </div>
+          <div class="collapse navbar-collapse" id="navbar-mobile">
+          <ul class="nav navbar-nav">
+            <li><a routerLink="/Administracion/Role">Roles</a></li>
+            <li><a routerLink="/Administracion/Sucursales">Sucursales</a></li>
+            <li><a routerLink="/Administracion/Trabajadores">Trabajadores</a></li>
+            <li><a routerLink="/Administracion/Proveedores">Proveedores</a></li>
+            <li><a routerLink="/Administracion/Productos">Productos</a></li>
+            <li><a routerLink="/Administracion/Compras">Compras</a></li>
+            <li><a routerLink="/Administracion/Horario">Horario</a></li>
+            <li><a routerLink="/Administracion/Planilla">Planilla</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a routerLink="/Administracion/Login">Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
   
-
+<!--Navbar de la App Mobile-->
+<div class="hidden">
   <div class="visible-xs hidden-sm hidden-md hidden-lg" id="nav-mobile">
     <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
         <div class="container-fluid">
@@ -25,19 +60,71 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a href="#!/home" class="navbar-brand">L3M Super</a>
+            <a routerlink="/Administracion/Home" class="navbar-brand">L3M Super</a>
           </div>
           <div class="collapse navbar-collapse" id="navbar-mobile">
           <ul class="nav navbar-nav">
-            <li><a routerLink="/Role">Roles</a></li>
-            <li><a routerLink="/Home">Compras</a></li>
-            <li><a routerLink="/horario">Horario</a></li>
+            <li><a routerLink="/Administracion/Role">Roles</a></li>
+            <li><a routerLink="/Administracion/Compras">Compras</a></li>
+            <li><a routerLink="/Administracion/Horario">Horario</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a routerLink="/Login">Login</a></li>
+            <li class="active"><a routerLink="/Administracion/Login">Login</a></li>
           </ul>
         </div>
       </div>
     </nav>
   </div>
-  
+</div>
+
+
+<!--Navbar de la App de Reportes-->
+<div class="hidden">
+  <!--Nav Normal-->
+  <div class="hidden-xs hidden-sm navbar navbar-default navbar-fixed-top" id="nav-bar">
+    <ul>
+      <li><a routerlink="/Reportes/Home">Inicio</a></li>
+      <li><a routerlink="/Reportes/ListaProductos">Lista de productos</a></li>
+      <li><a routerlink="/Reportes/ListaProductosSucursal">Productos por sucursal</a></li>
+      <li><a routerlink="/Reportes/Gastos">Gastos</a></li>
+      <li style="float:right"><a class="active" routerlink="Reportes/Login">Login</a></li>
+    </ul>
+  </div>
+  <!--Bootstrap NavResponsive-->
+  <div class="visible-xs visible-sm hidden-md hidden-lg" id="nav-mobile">
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-mobile">
+            <span class="sr-only">Menú</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a routerlink="Reportes/Home" class="navbar-brand">L3M Super</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-mobileReportes">
+          <ul class="nav navbar-nav">
+            <li><a routerlink="/Reportes/ListaProductos">Lista de productos</a></li>
+            <li><a routerlink="/Reportes/ListaProductosSucursal">Productos por sucursal</a></li>
+            <li><a routerlink="/Reportes/Gastos">Gastos</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a routerlink="/Reportes/Login">Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<!--Navbar App Ventas-->
+<div class="hidden">
+    <div id="nav-bar" class="navbar navbar-default navbar-fixed-top">
+        <ul>
+          <li><a routerlink="/Ventas/Home">Inicio</a></li>
+         <li><a routerlink="/Ventas/Factura">Facturación</a></li>
+         <li style="float:right"><a class="active" routerlink="/Ventas/Login">Login</a></li>
+        </ul>
+      </div>
+</div>

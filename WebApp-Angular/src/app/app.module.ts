@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
+import { DeviceDetectorModule } from 'ngx-device-detector';//Componente deteccion Android 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdministrationComponent } from './administration/administration.component';
@@ -51,7 +51,8 @@ import { FacturaComponent } from './ventas/factura/factura.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DeviceDetectorModule.forRoot()
   ],
   providers: [RoleManagementService],
   bootstrap: [AppComponent]

@@ -38,7 +38,8 @@ const routes: Routes = [
   { path: 'Administracion/Trabajadores', component: TrabajadoresComponent },
 
   //Rutas Reportes
-  { path: 'Reportes', component: ReportsComponent },
+  { path: 'Reportes/', component: ReportsComponent },
+  { path: 'Reportes/Home', component: ReportsComponent },
   { path: 'Reportes/Login', component: LoginComponent },
   { path: 'Reportes/ListaProductos', component: ProductAllListComponent },
   { path: 'Reportes/ListaProductosSucursal', component: MenuSelectionComponent },
@@ -52,7 +53,10 @@ const routes: Routes = [
   { path: 'Reportes/Gastos/SanJose', component: ExpensesComponent },
   { path: 'Reportes/Gastos/Todas', component: ExpensesComponent },
   //Rutas ventas
+  { path: 'Ventas', component: VentasComponent },
+  { path: 'Ventas/Home', component: VentasComponent },
   { path: 'Ventas/Factura', component: FacturaComponent },
+  { path: 'Ventas/Login', component: LoginComponent }
 
 ];
 
