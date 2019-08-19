@@ -3,8 +3,8 @@
   <br><br>
   <form name="infoForm" ng-submit="addSuc()" novalidate class="form-inline">
     <div class="form-group">
-      <label for="cajero" class="control-label col-md-2 sr-only">Cajero:</label>
-      <div class="dropdown col-md-5">
+      <label for="cajero" class="control-label col-md-1 sr-only">Cajero:</label>
+      <div class="dropdown col-md-1">
           <button class="btn btn-primary dropdown-toggle form-group" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 Cajero
                 <span class="caret"></span>
@@ -17,8 +17,8 @@
         </div>
     </div>
     <div class="form-group">
-      <label for="cajero" class="control-label col-md-2 sr-only">Sucursal:</label>
-      <div class="dropdown col-md-5">
+      <label for="cajero" class="control-label col-md-1 sr-only">Sucursal:</label>
+      <div class="dropdown col-md-1">
           <button class="btn btn-primary dropdown-toggle form-group" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 Sucursal
                 <span class="caret"></span>
@@ -31,7 +31,7 @@
       </div>
     </div>
     <div class="form-group">
-      <div class="col-md-5">
+      <div class="col-md-1">
         <input class="btn btn-success" type="submit"
         value= "Agregar" ng-disabled="infoForm.$invalid">
       </div>
@@ -59,7 +59,15 @@
       </table>
     </div>
     <br><br><br>
-  
+    <div class="container">
+      <div class="col-md-1">
+        <h3>Total: </h3>
+      </div>
+      <div class="col-md-1">
+          <h3><span class = "badge">$30.05</span></h3>
+        </div>
+    </div>
+    <br><br><br>
     <div class = "container">
       <h3 style > Agregar producto <span class = "label label-warning">Nuevo</span></h3>
       <br><br>
@@ -88,7 +96,6 @@
             <input  class = "form-control" type = "number" placeholder = "Descuento" ng-model = "nprod.descuento" ng-required = "true" >
           </div>
         </div>
-        
     </form>
 </div>
 
