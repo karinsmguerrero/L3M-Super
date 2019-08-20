@@ -13,8 +13,8 @@
         </tr>
         <tr *ngFor="let Provider of service.providerList" class="active">
           <td (click)="populateForm(Provider)"> {{Provider.Name}}</td>
-          <td>{{Provider.ID}}</td>
-          <td><button class="btn btn-sm btn-outline-danger">X</button></td>
+          <td>{{Provider.Id}}</td>
+          <td><button class="btn btn-sm btn-outline-danger" (click)="onDelete(Provider)">X</button></td>
         </tr>
       </table>
     </div>
@@ -22,17 +22,17 @@
   <div class="container">
     <h3>     Agregar proveedor <span class="label label-warning">Nuevo</span></h3>
     <br><br>
-    <form name="proveedorForm" ng-submit="addProveedor()" novalidate class="form-horizontal">
+    <form #form = "ngForm" (submit)="onSubmit(form)" novalidate class="form-horizontal" autocomplete="off">
       <div class="form-group">
         <label for="nombre" class="control-label col-md-2">Nombre:</label>
         <div class="col-md-4">
-          <input  class="form-control" type="text" placeholder="Nombre" ng-model="nprov.nombre" ng-required="true"  >
+          <input class="form-control"  placeholder="Nombre" name="Name" #Name="ngModel" [(ngModel)]="service.formData.Name" required  >
         </div>
       </div>
       <div class="form-group">
         <label for="descripcion" class="control-label col-md-2">Cédula:</label>
         <div class="col-md-4">
-          <input  class="form-control" type="tel" placeholder="Cédula" ng-model="nprov.cedula" ng-required="true"
+          <input  class="form-control" type="tel" name="Id" placeholder="Cédula" #Id="ngModel" required [(ngModel)]="service.formData.Id"
           pattern="[1-9]{1}[0-9]{10}" >
         </div>
       </div>

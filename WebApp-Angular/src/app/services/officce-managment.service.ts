@@ -13,10 +13,10 @@ export class OfficceManagmentService {
   constructor(private http : HttpClient) { }
 
   submitOfficce(formData: Officce){
-    return this.http.post(this.rootURL + '/Officce', formData);
+    return this.http.post(this.rootURL + '/Branch', formData);
   }
 
   getOfficce(){
-    this.http.get(this.rootURL + '/Officce').toPromise().then(res => this.officceList = res as Officce[]);
+    this.http.get(this.rootURL + '/Branch').toPromise().then(res => this.officceList = res as Officce[]);
   }
 }
