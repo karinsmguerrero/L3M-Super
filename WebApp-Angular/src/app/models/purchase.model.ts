@@ -4,4 +4,5 @@ export class Purchase {
     RegistrationDate:string;
     Provider:string;
     Branch:string;
+    Photo:string;
 }

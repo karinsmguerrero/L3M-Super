@@ -2,19 +2,6 @@
     <h1 style="color:#263238"> Gestión de compras </h1>
 </div>
 
-<div class="container">
-    <br>
-    <form class="form-horizontal" action="">
-        <div class="form-group">
-            <label for="busqueda" class="control-label col-md-1"> Búsqueda: </label>
-            <div class="col-md-5">
-                <input class="form-control" type="search" ng-model="busqueda" placeholder="Buscar..." />
-            </div>
-            <div class="col-md-6"> </div>
-        </div>
-    </form>
-</div>
-
 <br><br>
 
 <div class="table-responsive">
@@ -26,6 +13,7 @@
             <th> Fecha de Registro de la Compra </th>
             <th> Proovedor </th>
             <th> Sucursal de la Compra </th>
+            <th> Foto </th>
             <th></th>
         </tr>
         <tr *ngFor="let Purchase of service.shoppingList" class="active">
@@ -34,7 +22,7 @@
             <td>{{Purchase.RegistrationDate}}</td>
             <td>{{Purchase.Provider}}</td>
             <td>{{Purchase.Branch}}</td>
-            
+            <td><img src="{{Purchase.Photo}}"></td>
             <td><button class="btn btn-sm btn-outline-danger">X</button></td>
           </tr>
     </table>
@@ -53,14 +41,14 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="fechaDeCompra" class="control-label col-md-2">Fecha de la Compra:</label>
+            <label for="fechaDeCompra" class="control-label col-md-2">Fecha de la compra:</label>
             <div class="col-md-4">
                 <input class="form-control" type="date" placeholder="Fecha de la Compra" ng-model="ncomp.fechaDeCompra"
                     ng-required="true" min="2010-01-01">
             </div>
         </div>
         <div class="form-group">
-            <label for="fechaRegistroCompra" class="control-label col-md-2">Fecha de Registro de la Compra:</label>
+            <label for="fechaRegistroCompra" class="control-label col-md-2">Fecha de Registro de la compra:</label>
             <div class="col-md-4">
                 <input class="form-control" type="date" placeholder="Fecha de Registro de la Compra"
                     ng-model="ncomp.fechaRegistroCompra" ng-required="true" min="2010/01/01">
@@ -74,10 +62,17 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="sucursalCompra" class="control-label col-md-2">Sucursal de la Compra:</label>
+            <label for="sucursalCompra" class="control-label col-md-2">Sucursal de la compra:</label>
             <div class="col-md-4">
                 <input class="form-control" type="text" placeholder="Sucursal de la Compra"
-                    ng-model="ncomp.Sucursal de la Compra" ng-required="true">
+                    ng-model="ncomp.SucursalCompra" ng-required="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="sucursalCompra" class="control-label col-md-2">Foto de compra:</label>
+            <div class="col-md-4">
+                <input class="form-control" type="file" placeholder="Imagen Compra"
+                    ng-model="ncomp.FotoCompra" ng-required="true">
             </div>
         </div>
         <div class="form-group">
