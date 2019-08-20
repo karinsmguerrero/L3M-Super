@@ -16,6 +16,12 @@
     <role name="Conserje">
       <description>Encargado de la limpieza</description>
     </role>
+    <role name="nbn">
+      <description>nkn</description>
+    </role>
+    <role name="kk">
+      <description>jk</description>
+    </role>
   </roles>
   <employees>
     <employee id="117110372">
@@ -40,7 +46,7 @@
     <provider id="123456788">
       <name>Heinz</name>
     </provider>
-    <provider id="">
+    <provider id="123456678">
       <name>Cefa</name>
     </provider>
     <provider id="11112222223">
@@ -49,17 +55,34 @@
     <provider id="456789065">
       <name>Pozuelo</name>
     </provider>
+    <provider id="12334456">
+      <name>Demasa</name>
+    </provider>
+    <provider id="cc">
+      <name>cc</name>
+    </provider>
   </providers>
   <branches>
     <branch name="san_jose">
-      <direction>San José, Pavas</direction>
+      <adress>San José, Pavas</adress>
       <administrator>Karina</administrator>
       <phone>22131437</phone>
     </branch>
     <branch name="cartago">
-      <direction>Cartago, Oriental</direction>
+      <adress>Cartago, Oriental</adress>
       <administrator>Gerald</administrator>
       <phone>25501437</phone>
+    </branch>
+    <branch name="Pavas">
+      <adress>
+      </adress>
+      <phone>22131437</phone>
+      <administrator>Karolina</administrator>
+    </branch>
+    <branch name="Alajuela">
+      <adress>Alajuela, Aeropuerto</adress>
+      <phone>1343434353</phone>
+      <administrator>Ana</administrator>
     </branch>
   </branches>
 </root>

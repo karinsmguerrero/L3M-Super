@@ -24,6 +24,7 @@ import { MenuSelectionComponent } from './reports/menu-selection/menu-selection.
 import { ProductListComponent } from './reports/product-list/product-list.component';
 import { CostComponent } from './reports/cost/cost.component';
 import { ProductAllListComponent } from './reports/product-all-list/product-all-list.component';
+import { ExpensesComponent } from './reports/expenses/expenses.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { ProductAllListComponent } from './reports/product-all-list/product-all-
     MenuSelectionComponent,
     ProductListComponent,
     CostComponent,
-    ProductAllListComponent
+    ProductAllListComponent,
+    ExpensesComponent
   ],
   imports: [
     BrowserModule,

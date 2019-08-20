@@ -13,5 +13,7 @@ namespace WebApi.Models
         public string Tax { get; set; }
         public string Price { get; set; }
         public string Branch { get; set; }
+        public string Discount { get; set; }
+        public string Quantity { get; set; }
     }
 }

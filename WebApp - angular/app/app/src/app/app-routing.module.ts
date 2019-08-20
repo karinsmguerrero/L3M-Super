@@ -23,7 +23,7 @@ const routes: Routes = [
   //Rutas Admin
   { path: 'Administracion', component: AdministrationComponent },
   { path: 'Administracion/Login', component: LoginComponent },
-  { path: 'Administracion/Role', component: RolesComponent },
+  { path: 'Role', component: RolesComponent },
   { path: 'Administracion/Compras', component: ComprasComponent },
   { path: 'Administracion/Horario', component: HorarioComponent },
   { path: 'Administracion/Planilla', component: PlanillaComponent },

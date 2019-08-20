@@ -5,5 +5,7 @@
     <description>Caja de leche de 1 litro Dos Pinos</description>
     <tax>false</tax>
     <price>500</price>
+    <discount>0</discount>
+    <quantity>50</quantity>
   </product>
 </products>

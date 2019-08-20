@@ -27,7 +27,13 @@ namespace WebApi
                 //constraints: new { id = @"[A-Za-z]*" }
             );
 
-           
+            config.Routes.MapHttpRoute(
+                 name: "AdminApi",
+                 routeTemplate: "api/Administracion/{controller}/{id}",
+                 defaults: new { id = RouteParameter.Optional },
+                 constraints: new { id = new CustomRegExConstraint(@"[A-Za-z]*") }
+             //constraints: new { id = @"[A-Za-z]*" }
+             );
         }
     }
 }

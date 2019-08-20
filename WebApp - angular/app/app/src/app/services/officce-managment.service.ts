@@ -12,7 +12,7 @@ export class OfficceManagmentService {
 
   constructor(private http : HttpClient) { }
 
-  submitRole(formData: Officce){
+  submitOfficce(formData: Officce){
     return this.http.post(this.rootURL + '/Branch', formData);
   }
 

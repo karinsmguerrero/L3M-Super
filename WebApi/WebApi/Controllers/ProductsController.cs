@@ -46,88 +46,47 @@ namespace WebApi.Controllers
         // GET: api/Products/5
         public IEnumerable<Product> Get(int branch_id)
         {
-            if(branch_id == 1)
-            {
-                XmlDocument xml = new XmlDocument();
-                xml.Load(Constants.XML_PATH + "Products-cartago.xml");
+            XmlDocument xml = new XmlDocument();
 
-                var list = new List<Product>();
-                XmlNodeList products = xml.DocumentElement.SelectNodes("/products/product");
-
-                foreach (XmlNode product in products)
-                {
-                    string id = product.Attributes["id"].Value;
-                    string name = product["name"].InnerText;
-                    string description = product["description"].InnerText;
-                    string tax = product["tax"].InnerText;
-                    string price = product["price"].InnerText;
-                    list.Add(new Product()
-                    {
-                        Name = name,
-                        Id = id,
-                        Description = description,
-                        Tax = tax,
-                        Price = price
-                    });
-                }
-
-                return list;
+            if (branch_id == 1)
+            {                
+                xml.Load(Constants.XML_PATH + "Products-cartago.xml");                
             }
             if(branch_id == 2)
             {
-                XmlDocument xml = new XmlDocument();
-                xml.Load(Constants.XML_PATH + "Products-sanjose.xml");
-
-                var list = new List<Product>();
-                XmlNodeList products = xml.DocumentElement.SelectNodes("/products/product");
-
-                foreach (XmlNode product in products)
-                {
-                    string id = product.Attributes["id"].Value;
-                    string name = product["name"].InnerText;
-                    string description = product["description"].InnerText;
-                    string tax = product["tax"].InnerText;
-                    string price = product["price"].InnerText;
-                    list.Add(new Product()
-                    {
-                        Name = name,
-                        Id = id,
-                        Description = description,
-                        Tax = tax,
-                        Price = price
-                    });
-                }
-
-                return list;
+                xml.Load(Constants.XML_PATH + "Products-sanjose.xml");  
             }
             else
-            {
-                XmlDocument xml = new XmlDocument();
+            {              
                 xml.Load(Constants.XML_PATH + "Products-heredia.xml");
-
-                var list = new List<Product>();
-                XmlNodeList products = xml.DocumentElement.SelectNodes("/products/product");
-
-                foreach (XmlNode product in products)
-                {
-                    string id = product.Attributes["id"].Value;
-                    string name = product["name"].InnerText;
-                    string description = product["description"].InnerText;
-                    string tax = product["tax"].InnerText;
-                    string price = product["price"].InnerText;
-                    list.Add(new Product()
-                    {
-                        Name = name,
-                        Id = id,
-                        Description = description,
-                        Tax = tax,
-                        Price = price
-                    });
-                }
-
-                return list;
             }
-            
+
+            var list = new List<Product>();
+            XmlNodeList products = xml.DocumentElement.SelectNodes("/products/product");
+
+            foreach (XmlNode product in products)
+            {
+                string id = product.Attributes["id"].Value;
+                string name = product["name"].InnerText;
+                string description = product["description"].InnerText;
+                string tax = product["tax"].InnerText;
+                string price = product["price"].InnerText;
+                string discount = product["discount"].InnerText;
+                string quantity = product["quantity"].InnerText;
+                list.Add(new Product()
+                {
+                    Name = name,
+                    Id = id,
+                    Description = description,
+                    Tax = tax,
+                    Price = price,
+                    Discount = discount,
+                    Quantity = quantity
+                });
+            }
+
+            return list;
+
         }
 
         // POST: api/Products
@@ -162,6 +121,14 @@ namespace WebApi.Controllers
             XmlNode price = xml.CreateElement("price");
             price.InnerText = value.Price;
             newProduct.AppendChild(price);
+
+            XmlNode quantity = xml.CreateElement("quantity");
+            quantity.InnerText = value.Quantity;
+            newProduct.AppendChild(quantity);
+
+            XmlNode discount = xml.CreateElement("discount");
+            discount.InnerText = value.Discount;
+            newProduct.AppendChild(discount);
 
             products.AppendChild(newProduct);
             xml.Save(xmlPath);

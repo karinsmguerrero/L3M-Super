@@ -26,13 +26,13 @@ namespace WebApi.Controllers
             foreach (XmlNode branch in branches)
             {
                 string name = branch.Attributes["name"].Value;
-                string direction = branch["direction"].InnerText;
-                string phone = branch.Attributes["phone"].Value;
+                string adress = branch["adress"].InnerText;
+                string phone = branch["phone"].InnerText;
                 string administrator = branch["administrator"].InnerText;
                 list.Add(new Branch()
                 {
                     Name = name,
-                    Direction = direction,
+                    Address = adress,
                     Phone = phone,
                     Administrator = administrator
                 });
@@ -57,8 +57,8 @@ namespace WebApi.Controllers
                 {
                     
                     result.Name = branch.Attributes["name"].Value;
-                    result.Direction = branch["direction"].InnerText;
-                    result.Phone = branch.Attributes["phone"].Value;
+                    result.Address = branch["adress"].InnerText;
+                    result.Phone = branch["phone"].InnerText;
                     result.Administrator = branch["administrator"].InnerText;
                     break;
                 }
@@ -85,9 +85,9 @@ namespace WebApi.Controllers
 
 
             // Create and append a child element for the description of the role.
-            XmlNode direction = xml.CreateElement("direction");
-            direction.InnerText = value.Direction;
-            newBranch.AppendChild(direction);
+            XmlNode adress = xml.CreateElement("adress");
+            adress.InnerText = value.Address;
+            newBranch.AppendChild(adress);
 
             XmlNode ohone = xml.CreateElement("phone");
             ohone.InnerText = value.Phone;
