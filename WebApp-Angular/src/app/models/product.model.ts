@@ -1,10 +1,10 @@
 export class Product {
     Name:string;
     Description:string;
-    Code:number;
+    Id:number;
     Provider:string;
     Price:number;
-    Tax:number;
+    Tax:string;
     Discount:number;
     Quantity:number;
 }

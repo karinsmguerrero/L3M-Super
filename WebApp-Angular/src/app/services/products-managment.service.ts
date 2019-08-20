@@ -11,6 +11,7 @@ export class ProductsManagmentService {
 
   readonly rootURL = "http://localhost:59791/api";
   productList : Product[];
+  formData: Product;
 
   constructor(private http : HttpClient) { }
 
@@ -20,5 +21,9 @@ export class ProductsManagmentService {
 
   getProducts(){
     this.http.get(this.rootURL + '/Product').toPromise().then(res => this.productList = res as Product[]);
+  }
+
+  deleteProduct(Id: string) {
+    return this.http.delete(this.rootURL + '/Product/' + Id);
   }
 }
