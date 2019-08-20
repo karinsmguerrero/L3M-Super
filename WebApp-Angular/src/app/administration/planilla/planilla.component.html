@@ -17,7 +17,7 @@
         </tr>
         
         <tr *ngFor="let Employee of service.employeeList" class="active">
-            <td (click)="populateForm(Employee)"> {{Employ.Name}}</td>
+            <td (click)="populateForm(Employee)"> {{Employee.Name}}</td>
             <td> {{Employee.Id}}</td>
             <td> {{Employee.Birth}}</td>
             <td> {{Employee.Hiring}}</td>
@@ -32,7 +32,7 @@
     <div class = "container">
       <h3> Agregar trabajador <span class = "label label-warning">Nuevo</span></h3>
       <br><br>
-      <form name = "trabajadorForm" ng-submit = "addTrabajador()" novalidate class = "form-horizontal">
+      <form #form = "ngForm" (submit)="onSubmit(form)" novalidate class="form-horizontal" autocomplete="off">
         <div class = "form-group">
           <label for = "nombre" class = "control-label col-md-2">Nombre:</label>
           <div class = "col-md-4">

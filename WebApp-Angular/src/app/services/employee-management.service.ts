@@ -9,14 +9,15 @@ export class EmployeeManagementService {
 
   readonly rootURL = "http://localhost:59791/api";
   employeeList : Employee[];
+  formData: Employee;
 
   constructor(private http : HttpClient) { }
 
   submitEmployee(formData: Employee){
-    return this.http.post(this.rootURL + '/Employee', formData);
+    return this.http.post(this.rootURL + '/Employees', formData);
   }
 
   getEmployee(){
-    this.http.get(this.rootURL + '/Employee').toPromise().then(res => this.employeeList = res as Employee[]);
+    this.http.get(this.rootURL + '/Employees').toPromise().then(res => this.employeeList = res as Employee[]);
   }
 }
