@@ -24,17 +24,17 @@ import { FacturaComponent } from './ventas/factura/factura.component';
 
 
 const routes: Routes = [
-  //{ path: '', redirectTo: '/roles', pathMatch: 'full' },
+  { path: '', redirectTo: 'Administracion', pathMatch: 'full' },
   //Rutas Admin
   { path: 'Administracion', component: AdministrationComponent },
   { path: 'Administracion/Login', component: LoginComponent },
   { path: 'Administracion/Role', component: RolesComponent },
-  { path: 'Administracion/Compras', component: ComprasComponent },
-  { path: 'Administracion/Horario', component: HorarioComponent },
-  { path: 'Administracion/Planilla', component: PlanillaComponent },
-  { path: 'Administracion/Productos', component: ProductosComponent },
-  { path: 'Administracion/Proveedores', component: ProveedoresComponent },
-  { path: 'Administracion/Sucursales', component: SucursalesComponent },
+  { path: 'Administracion/Purchase', component: ComprasComponent },
+  { path: 'Administracion/Schedule', component: HorarioComponent },
+  { path: 'Administracion/Employees', component: PlanillaComponent },
+  { path: 'Administracion/Product', component: ProductosComponent },
+  { path: 'Administracion/Provider', component: ProveedoresComponent },
+  { path: 'Administracion/Branch', component: SucursalesComponent },
   { path: 'Administracion/Trabajadores', component: TrabajadoresComponent },
 
   //Rutas Reportes

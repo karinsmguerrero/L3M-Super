@@ -11,6 +11,8 @@ import { Nav } from 'src/app/models/nav.model';
 })
 export class NavigationComponent implements OnInit {
   deviceInfo = null;
+  mobile_class: string;
+  administration_class:string;
     
     constructor(private http : HttpClient, private deviceService: DeviceDetectorService) {
       this.mobileFunction();
