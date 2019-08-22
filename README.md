@@ -4,7 +4,13 @@
 * Karina Martínez Guerrero (2017102001)
 * Gerald Valverde Mc kenzie (2017112234)
 
-## [API](https://github.com/geraldvm/L3M-Super/tree/API)
+## Manual de usuario
+
+### [Manual Administrador](https://github.com/geraldvm/L3M-Super/blob/master/ManualAdmin.docx.pdf)
+
+### [Manual Reportes](https://github.com/geraldvm/L3M-Super/blob/master/Manual%20reportes.docx.pdf)
+
+### [Manual Ventas](https://github.com/geraldvm/L3M-Super/blob/master/ManualVentas.docx.pdf)
 
 ## [Web App](https://github.com/geraldvm/L3M-Super/tree/Angular)
 
