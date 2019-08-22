@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: 'Administracion/Login', component: LoginComponent },
   { path: 'Administracion/Role', component: RolesComponent },
   { path: 'Administracion/Purchase', component: ComprasComponent },
-  { path: 'Administracion/Schedule', component: HorarioComponent },
+  { path: 'Administracion/Schedules', component: HorarioComponent },
   { path: 'Administracion/Employees', component: PlanillaComponent },
   { path: 'Administracion/Product', component: ProductosComponent },
   { path: 'Administracion/Provider', component: ProveedoresComponent },

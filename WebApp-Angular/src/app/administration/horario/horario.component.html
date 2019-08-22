@@ -8,7 +8,8 @@
       <table class="table">
         <tr>
           <th>Nombre</th>
-          <th>Semana</th>
+          <th>Dia inicio</th>
+          <th>Dia final</th>
           <th>Horas</th>
           <th>Sucursal</th>
           <th>Extras</th>
@@ -16,12 +17,12 @@
         </tr>
        
         <tr *ngFor="let Schedule of service.scheduleList" class="active">
-          <td (click)="populateForm(Schedule)"> {{Schedule.Name}}</td>
-          <td>{{Schedule.Name}}</td>
-          <td>{{Schedule.Week}}</td>
+          <td (click)="populateForm(Schedule)"> {{Schedule.EmployeeName}}</td>
+          <td>{{Schedule.StartDay}}</td>
+          <td>{{Schedule.EndDay}}</td>
           <td>{{Schedule.Hours}}</td>
-          <td>{{Schedule.Officce}}</td>
-          <td>{{Schedule.Hours-42}}</td>
+          <td>{{Schedule.Branch}}</td>
+          <td>{{Schedule.ExtraHours}}</td>
           <td><button class="btn btn-sm btn-outline-danger">X</button></td>
         </tr>
       </table>
@@ -30,40 +31,43 @@
   <div class="container">
     <h3 >Agregar Horario <span class="label label-warning">Agregar</span></h3>
     <br><br>
-    <form name="horarioForm" ng-submit="addHorario()" novalidate class="form-horizontal">
+    <form #form = "ngForm" (submit)="onSubmit(form)" novalidate class="form-horizontal" autocomplete="off">
       <div class="form-group">
         <label for="nombre" class="control-label col-md-2">Nombre:</label>
         <div class="col-md-4">
-          <input  class="form-control"
-           type="text" placeholder="Nombre" ng-model="nhor.nombre" ng-required="true">
+          <input name="EmployeeName" #EmployeeName="ngModel" [(ngModel)]="service.formData.EmployeeName" class="form-control" required>
         </div>
       </div>
       <div class="form-group">
-        <label for="semana" class="control-label col-md-2">Semana:</label>
+        <label for="semana" class="control-label col-md-2">Dia inicio:</label>
         <div class="col-md-4">
           <input  class="form-control"
-           type="date" placeholder="Semana" ng-model="nhor.semana" ng-required="true" min="2019-01-01">
+           type="date"  [(ngModel)]="service.formData.StartDay" required name="StartDay" #StartDay="ngModel" min="2019-01-01">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="semana" class="control-label col-md-2">Dia final:</label>
+        <div class="col-md-4">
+          <input  class="form-control"
+           type="date"  [(ngModel)]="service.formData.EndDay" required name="EndDay" #EndDay="ngModel" min="2019-01-01">
         </div>
       </div>
       <div class="form-group">
         <label for="horas" class="control-label col-md-2">Horas:</label>
         <div class="col-md-4">
-          <input  class="form-control" type="number" min="42"
-          placeholder="Horas" ng-model="nhor.horas"  ng-required="true">
+          <input name="Hours" #Hours="ngModel" [(ngModel)]="service.formData.Hours" class="form-control" required>
         </div>
       </div>
       <div class="form-group">
         <label for="sucursal" class="control-label col-md-2">Sucursal:</label>
         <div class="col-md-4">
-          <input  class="form-control" type="text"
-          placeholder="Sucursal" ng-model="nhor.sucursal" ng-required="true">
+          <input name="Branch" #Branch="ngModel" [(ngModel)]="service.formData.Branch" class="form-control" required>
         </div>
       </div>
   
       <div class="form-group">
         <div class="col-md-4 col-md-offset-3">
-          <input class="btn btn-primary" type="submit"
-          value= "Agregar" ng-disabled="horarioForm.$invalid"/>
+          <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Agregar</button>
         </div>
       </div>
   </form>

@@ -1,6 +1,10 @@
 export class Schedule {
-    Name:string;
-    Week:string;
+    EmployeeName:string;
+    //Week:string;
     Hours:number;
-    Officce:string;
+    //Officce:string;
+    StartDay: string;
+    EndDay: string;
+    Branch:string;
+    ExtraHours:number;
 }
