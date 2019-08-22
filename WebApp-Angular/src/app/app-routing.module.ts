@@ -25,39 +25,53 @@ import { FacturaComponent } from './ventas/factura/factura.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'Administracion', pathMatch: 'full' },
+  //{ path: ':id', component: ReportsComponent },
   //Rutas Admin
-  { path: 'Administracion', component: AdministrationComponent },
-  { path: 'Administracion/Login', component: LoginComponent },
-  { path: 'Administracion/Role', component: RolesComponent },
-  { path: 'Administracion/Purchase', component: ComprasComponent },
-  { path: 'Administracion/Schedules', component: HorarioComponent },
-  { path: 'Administracion/Employees', component: PlanillaComponent },
-  { path: 'Administracion/Product', component: ProductosComponent },
-  { path: 'Administracion/Provider', component: ProveedoresComponent },
-  { path: 'Administracion/Branch', component: SucursalesComponent },
-  { path: 'Administracion/Trabajadores', component: TrabajadoresComponent },
+  { path: 'Administracion', pathMatch:'prefix',
+    children: [
+      { path: 'Home', component: AdministrationComponent },
+      { path: 'Login', component: LoginComponent },
+      { path: 'Role', component: RolesComponent },
+      { path: 'Purchase', component: ComprasComponent },
+      { path: 'Schedule', component: HorarioComponent },
+      { path: 'Employees', component: PlanillaComponent },
+      { path: 'Product', component: ProductosComponent },
+      { path: 'Provider', component: ProveedoresComponent },
+      { path: 'Branch', component: SucursalesComponent },
+      { path: 'Trabajadores', component: TrabajadoresComponent },
+      { path: '', component: AdministrationComponent },
+    ]
+},
+
 
   //Rutas Reportes
-  { path: 'Reportes/', component: ReportsComponent },
-  { path: 'Reportes/Home', component: ReportsComponent },
-  { path: 'Reportes/Login', component: LoginComponent },
-  { path: 'Reportes/ListaProductos', component: ProductAllListComponent },
-  { path: 'Reportes/ListaProductosSucursal', component: MenuSelectionComponent },
-  { path: 'Reportes/ListaProductosSucursal/Cartago', component: ProductListComponent },
-  { path: 'Reportes/ListaProductosSucursal/Heredia', component: ProductListComponent },
-  { path: 'Reportes/ListaProductosSucursal/SanJose', component: ProductListComponent },
-  { path: 'Reportes/ListaProductosSucursal', component: MenuSelectionComponent },
-  { path: 'Reportes/Gastos', component: ExpensesComponent },
-  { path: 'Reportes/Gastos/Cartago', component: ExpensesComponent },
-  { path: 'Reportes/Gastos/Heredia', component: ExpensesComponent },
-  { path: 'Reportes/Gastos/SanJose', component: ExpensesComponent },
-  { path: 'Reportes/Gastos/Todas', component: ExpensesComponent },
-  //Rutas ventas
-  { path: 'Ventas', component: VentasComponent },
-  { path: 'Ventas/Home', component: VentasComponent },
-  { path: 'Ventas/Factura', component: FacturaComponent },
-  { path: 'Ventas/Login', component: LoginComponent }
+  { path: 'Reportes', pathMatch:'prefix',
+    children:[
+      { path: 'Home', component: ReportsComponent },
+      { path: 'Login', component: LoginComponent },
+      { path: 'ListaProductos', component: ProductAllListComponent },
+      { path: 'ListaProductosSucursal', component: MenuSelectionComponent },
+      { path: 'ListaProductosSucursal/Heredia', component: ProductListComponent },
+      { path: 'ListaProductosSucursal/Cartago', component: ProductListComponent },
+      { path: 'ListaProductosSucursal/SanJose', component: ProductListComponent },
+      { path: 'Gastos', component: ExpensesComponent },
+      //{ path: 'Gastos/:sucursal', component: ExpensesComponent },
+      { path: 'Gastos/Heredia', component: ExpensesComponent },
+      { path: 'Gastos/Cartago', component: ExpensesComponent },
+      { path: 'Gastos/SanJose', component: ExpensesComponent },
+      { path: '', component: LoginComponent }
+    ]
+  },
+   //Rutas ventas
+  { path: 'Ventas', pathMatch:'prefix',
+    children:[
+      { path: 'Home', component: VentasComponent },
+      { path: 'Factura', component: FacturaComponent },
+      { path: 'Login', component: LoginComponent },
+      { path: '', component: LoginComponent }
+    ]
 
+  }
 ];
 
 @NgModule({

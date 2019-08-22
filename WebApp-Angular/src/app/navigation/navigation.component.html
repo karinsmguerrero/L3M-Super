@@ -1,8 +1,10 @@
+
 <!--NavBar de la app de Administracion-->
-<div class="visible">
-  <div class="hidden-xs hidden-sm navbar navbar-default navbar-fixed-top" id="nav-bar">
+<div *ngIf="isAdmin">
+<div *ngIf="isDesktopDevice">
+  <div class="hidden-xs hidden-sm visible-md visible-lg navbar navbar-default navbar-fixed-top" id="nav-bar">
     <ul>
-     <li><a routerLink="/Administracion">Inicio</a></li>
+     <li><a routerLink="/Administracion/Home">Inicio</a></li>
      <li><a routerLink="/Administracion/Role">Roles</a></li>
      <li><a routerLink="/Administracion/Branch">Sucursales</a></li>
      <li><a routerLink="/Administracion/Trabajadores">Trabajadores</a></li>
@@ -12,7 +14,7 @@
      <li><a routerLink="/Administracion/Schedules">Horario</a></li>
      <li><a routerLink="/Administracion/Employees">Planilla</a></li>
   
-     <li style="float:right"><a class="active" routerLink="/Login">Login</a></li>
+     <li style="float:right"><a class="active" routerLink="/Administracion/Login">Login</a></li>
     </ul>
   </div>
   <!--Navbar Responsive de la App Administracion-->
@@ -47,10 +49,10 @@
     </nav>
   </div>
 </div>
-  
+
 <!--Navbar de la App Mobile-->
-<div class="hidden">
-  <div class="visible-xs hidden-sm hidden-md hidden-lg" id="nav-mobile">
+<div *ngIf="isMobile">
+  <div id="nav-mobile" class="visible">
     <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -76,10 +78,10 @@
     </nav>
   </div>
 </div>
-
+</div>
 
 <!--Navbar de la App de Reportes-->
-<div class="hidden">
+<div *ngIf="isReport">
   <!--Nav Normal-->
   <div class="hidden-xs hidden-sm navbar navbar-default navbar-fixed-top" id="nav-bar">
     <ul>
@@ -87,7 +89,7 @@
       <li><a routerlink="/Reportes/ListaProductos">Lista de productos</a></li>
       <li><a routerlink="/Reportes/ListaProductosSucursal">Productos por sucursal</a></li>
       <li><a routerlink="/Reportes/Gastos">Gastos</a></li>
-      <li style="float:right"><a class="active" routerlink="Reportes/Login">Login</a></li>
+      <li style="float:right"><a class="active" routerlink="/Reportes/Login">Login</a></li>
     </ul>
   </div>
   <!--Bootstrap NavResponsive-->
@@ -101,7 +103,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a routerlink="Reportes/Home" class="navbar-brand">L3M Super</a>
+          <a routerlink="/Reportes/Home" class="navbar-brand">L3M Super</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-mobileReportes">
           <ul class="nav navbar-nav">
@@ -119,7 +121,7 @@
 </div>
 
 <!--Navbar App Ventas-->
-<div class="hidden">
+<div *ngIf="isSale">
     <div id="nav-bar" class="navbar navbar-default navbar-fixed-top">
         <ul>
           <li><a routerlink="/Ventas/Home">Inicio</a></li>
