@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<schedule>
+  <week start="12/08/2019" end="17/08/2019">
+    <employee name="Karina Martinez Guerrero">
+      <hours>48</hours>
+      <extras>0</extras>
+      <branch>San José</branch>
+    </employee>
+    <employee name="Gerald Valverde McKinsey">
+      <hours>48</hours>
+      <extras>4</extras>
+      <branch>Heredia</branch>
+    </employee>
+  </week>
+  <week start="19/08/2019" end="24/08/2019">
+    <employee name="Karina Martinez Guerrero">
+      <hours>48</hours>
+      <extras>6</extras>
+      <branch>San José</branch>
+    </employee>
+    <employee name="Gerald Valderde McKinsey">
+      <hours>48</hours>
+      <extras>6</extras>
+      <branch>Heredia</branch>
+    </employee>
+  </week>
+  <week start="2019-08-05" end="2019-08-10">
+    <employee name="Gerald Valverde McKinsey">
+      <hours>48</hours>
+      <extras>
+      </extras>
+      <branch>Heredia</branch>
+    </employee>
+  </week>
+  <week start="2019-08-05" end="2019-08-10">
+    <employee name="Ana Lucia Perez">
+      <hours>50</hours>
+      <extras>2</extras>
+      <branch>Cartago</branch>
+    </employee>
+  </week>
+  <week start="2019-08-12" end="2019-08-17">
+    <employee name="Ana Lucia Perez">
+      <hours>50</hours>
+      <extras>2</extras>
+      <branch>Cartago</branch>
+    </employee>
+  </week>
+</schedule>
