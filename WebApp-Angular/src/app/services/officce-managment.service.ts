@@ -9,6 +9,7 @@ export class OfficceManagmentService {
 
   readonly rootURL = "http://localhost:59791/api";
   officceList : Officce[];
+  formData: Officce;
 
   constructor(private http : HttpClient) { }
 

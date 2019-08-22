@@ -33,7 +33,7 @@ const routes: Routes = [
       { path: 'Login', component: LoginComponent },
       { path: 'Role', component: RolesComponent },
       { path: 'Purchase', component: ComprasComponent },
-      { path: 'Schedule', component: HorarioComponent },
+      { path: 'Schedules', component: HorarioComponent },
       { path: 'Employees', component: PlanillaComponent },
       { path: 'Product', component: ProductosComponent },
       { path: 'Provider', component: ProveedoresComponent },

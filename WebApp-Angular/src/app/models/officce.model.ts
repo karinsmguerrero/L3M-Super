@@ -1,6 +1,6 @@
 export class Officce {
     Name:string;
     Address:string;
-    Telephone:string;
+    Phone:string;
     Administrator:string;
 }
